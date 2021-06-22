@@ -1,0 +1,43 @@
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\GK COMSYSTEM CHAMIBEN.exe.config
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\GK COMSYSTEM CHAMIBEN.exe
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\GK COMSYSTEM CHAMIBEN.pdb
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\Bunifu_UI_v1.52.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\Domain.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\XanderUI.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\DataAccess.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\Google.Protobuf.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\Zstandard.Net.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\K4os.Compression.LZ4.Streams.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\BouncyCastle.Crypto.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\Ubiety.Dns.Core.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\Renci.SshNet.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\System.Buffers.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\K4os.Compression.LZ4.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\K4os.Hash.xxHash.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\Domain.pdb
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.xml
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\DataAccess.pdb
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\Presentation.csprojAssemblyReference.cache
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\Presentation.csproj.ResolveComReference.cache
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.CebicheCustom.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.ChamiEnsaladaCustom.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.coment1.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.coment2.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.coment4.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.Configuracion.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.Duo.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.coment3.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.Report.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.Inicio.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.LecheTigreCustom.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.Properties.Resources.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.Ronda.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.Trio.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GKCOMSYSTEMCHAMIBEN.Verif.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\Presentation.csproj.GenerateResource.cache
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\Presentation.csproj.CoreCompileInputs.cache
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\Presentation.csproj.CopyComplete
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GK COMSYSTEM CHAMIBEN.exe
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\GK COMSYSTEM CHAMIBEN.pdb

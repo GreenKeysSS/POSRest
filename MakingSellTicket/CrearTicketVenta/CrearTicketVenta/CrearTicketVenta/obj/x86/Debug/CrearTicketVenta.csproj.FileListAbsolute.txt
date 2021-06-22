@@ -1,0 +1,8 @@
+C:\Users\Ani\documents\visual studio 2010\Projects\CrearTicketVenta\CrearTicketVenta\bin\Debug\CrearTicketVenta.exe
+C:\Users\Ani\documents\visual studio 2010\Projects\CrearTicketVenta\CrearTicketVenta\bin\Debug\CrearTicketVenta.pdb
+C:\Users\Ani\documents\visual studio 2010\Projects\CrearTicketVenta\CrearTicketVenta\obj\x86\Debug\CrearTicketVenta.Form1.resources
+C:\Users\Ani\documents\visual studio 2010\Projects\CrearTicketVenta\CrearTicketVenta\obj\x86\Debug\CrearTicketVenta.Properties.Resources.resources
+C:\Users\Ani\documents\visual studio 2010\Projects\CrearTicketVenta\CrearTicketVenta\obj\x86\Debug\CrearTicketVenta.csproj.GenerateResource.Cache
+C:\Users\Ani\documents\visual studio 2010\Projects\CrearTicketVenta\CrearTicketVenta\obj\x86\Debug\CrearTicketVenta.exe
+C:\Users\Ani\documents\visual studio 2010\Projects\CrearTicketVenta\CrearTicketVenta\obj\x86\Debug\CrearTicketVenta.pdb
+C:\Users\Ani\documents\visual studio 2010\Projects\CrearTicketVenta\CrearTicketVenta\obj\x86\Debug\CrearTicketVenta.csprojResolveAssemblyReference.cache

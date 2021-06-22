@@ -1,0 +1,228 @@
+E:\Aysta C#\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe.config
+E:\Aysta C#\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe
+E:\Aysta C#\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.pdb
+E:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csprojResolveAssemblyReference.cache
+E:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Properties.Resources.resources
+E:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.GenerateResource.Cache
+E:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.exe
+E:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.pdb
+E:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmejm1.resources
+E:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmigv.resources
+E:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmExamen.resources
+H:\Aysta C#\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe.config
+H:\Aysta C#\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe
+H:\Aysta C#\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.pdb
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csprojAssemblyReference.cache
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmejm1.resources
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmExamen.resources
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmigv.resources
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Properties.Resources.resources
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.GenerateResource.cache
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CoreCompileInputs.cache
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.exe
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.pdb
+E:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmMnt_categoria.resources
+E:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmLogin.resources
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmLogin.resources
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmMntUsuario.resources
+H:\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmMnt_categoria.resources
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe.config
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.pdb
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csprojAssemblyReference.cache
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Form1.resources
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmLogin.resources
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmejm1.resources
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmExamen.resources
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmigv.resources
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmMntUsuario.resources
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.frmMnt_categoria.resources
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Properties.Resources.resources
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.GenerateResource.cache
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CoreCompileInputs.cache
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.exe
+E:\ITANES\Aysta C#\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.pdb
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.pdb
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.dll
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\bin\Debug\Google.Protobuf.dll
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\bin\Debug\Renci.SshNet.dll
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.xml
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Inicio.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Properties.Resources.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.GenerateResource.cache
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CoreCompileInputs.cache
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CopyComplete
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.exe
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.pdb
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.LecheTigreCustom.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.ChamiEnsaladaCustom.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.DUO.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Ronda.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csprojAssemblyReference.cache
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.CebicheCustom.resources
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csprojAssemblyReference.cache
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.CebicheCustom.resources
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.ChamiEnsaladaCustom.resources
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Duo.resources
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Inicio.resources
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.LecheTigreCustom.resources
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Properties.Resources.resources
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Ronda.resources
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.GenerateResource.cache
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CoreCompileInputs.cache
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.exe
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.pdb
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.pdb
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.dll
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\bin\Debug\Google.Protobuf.dll
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\bin\Debug\Renci.SshNet.dll
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.xml
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CopyComplete
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Trio.resources
+C:\Users\SONIC\Google Drive\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Configuracion.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Configuracion.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Trio.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment3.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment1.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment2.resources
+C:\Users\SONIC\Desktop\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment4.resources
+E:\Chami\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe
+E:\Chami\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.pdb
+E:\Chami\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.dll
+E:\Chami\slnInterfaz\pryInterfaz\bin\Debug\Google.Protobuf.dll
+E:\Chami\slnInterfaz\pryInterfaz\bin\Debug\Renci.SshNet.dll
+E:\Chami\slnInterfaz\pryInterfaz\bin\Debug\BouncyCastle.Crypto.dll
+E:\Chami\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.xml
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csprojAssemblyReference.cache
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.CebicheCustom.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.ChamiEnsaladaCustom.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment1.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment2.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment4.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Configuracion.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Duo.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment3.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Inicio.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.LecheTigreCustom.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Properties.Resources.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Ronda.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Trio.resources
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.GenerateResource.cache
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CoreCompileInputs.cache
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CopyComplete
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.exe
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.pdb
+F:\Chami\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe
+F:\Chami\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.pdb
+F:\Chami\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.dll
+F:\Chami\slnInterfaz\pryInterfaz\bin\Debug\Google.Protobuf.dll
+F:\Chami\slnInterfaz\pryInterfaz\bin\Debug\Renci.SshNet.dll
+F:\Chami\slnInterfaz\pryInterfaz\bin\Debug\BouncyCastle.Crypto.dll
+F:\Chami\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.xml
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csprojAssemblyReference.cache
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.CebicheCustom.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.ChamiEnsaladaCustom.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment1.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment2.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment4.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Configuracion.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Duo.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment3.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Inicio.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.LecheTigreCustom.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Properties.Resources.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Ronda.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Trio.resources
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.GenerateResource.cache
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CoreCompileInputs.cache
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CopyComplete
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.exe
+F:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.pdb
+E:\Chami\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Verif.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.pdb
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.dll
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\Google.Protobuf.dll
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\Renci.SshNet.dll
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.xml
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csprojAssemblyReference.cache
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.CebicheCustom.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.ChamiEnsaladaCustom.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment1.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment2.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment4.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Configuracion.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Duo.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment3.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Inicio.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.LecheTigreCustom.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Properties.Resources.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Ronda.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Trio.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Verif.resources
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.GenerateResource.cache
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CopyComplete
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.exe
+C:\Users\User\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.pdb
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.pdb
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\Google.Protobuf.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\Renci.SshNet.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\BouncyCastle.Crypto.dll
+E:\TPV\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.xml
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csprojAssemblyReference.cache
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.CebicheCustom.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.ChamiEnsaladaCustom.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment1.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment2.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment4.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Configuracion.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Duo.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment3.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Inicio.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.LecheTigreCustom.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Properties.Resources.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Ronda.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Trio.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Verif.resources
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.GenerateResource.cache
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CoreCompileInputs.cache
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CopyComplete
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.exe
+E:\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.pdb
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.exe
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\pryInterfaz.pdb
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.dll
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\Google.Protobuf.dll
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\Renci.SshNet.dll
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\bin\Debug\MySql.Data.xml
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csprojAssemblyReference.cache
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.CebicheCustom.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.ChamiEnsaladaCustom.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment1.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment2.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment4.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Configuracion.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Duo.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.coment3.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Inicio.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.LecheTigreCustom.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Properties.Resources.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Ronda.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Trio.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Verif.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.GenerateResource.cache
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CoreCompileInputs.cache
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.CopyComplete
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.exe
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.pdb
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.Report.resources
+C:\Users\SONIC\Desktop\TPV\slnInterfaz\pryInterfaz\obj\Debug\pryInterfaz.csproj.ResolveComReference.cache

@@ -1,0 +1,49 @@
+CEBICHE NORMAL CON CEBOLLA 
+CEBICHE NORMAL SIN CEBOLLA
+CEBICHE SIN AJI CON CEBOLLA
+CEBICHE SIN AJI SIN CEBOLLA
+CEBICHE PICANTE CON CEBOLLA
+CEBICHE PICANTE SIN CEBOLLA
+CEBICHE MUY PICANTE CON CEBOLLA
+CEBICHE MUY PICANTE SIN CEBOLLA
+
+
+LECHE DE TIGRE NORMAL CON CEBOLLA
+LECHE DE TIGRE NORMAL SIN CEBOLLA
+LECHE DE TIGRE SIN AJI CON CEBOLLA 
+LECHE DE TIGRE SIN AJI SIN CEBOLLA
+LECHE DE TIGRE PICANTE CON CEBOLLA
+LECHE DE TIGRE PICANTE SIN CEBOLLA
+LECHE DE TIGRE MUY PICANTE CON CEBOLLA
+LECHE DE TIGRE MUY PICANTE SIN CEBOLLA
+
+ENSALADA CHAMI CRUDA CON VINAGRETA  lomo a la parrilla 40, pescado a la plancha 32, asado 32, milanesa de pollo 32, milanesa de pescado 32, lomo apanado 40
+ENSALADA CHAMI CRUDA SIN VINAGRETA  lomo a la parrilla 40, pescado a la plancha 32, asado 32, milanesa de pollo 32, milanesa de pescado 32, lomo apanado 40
+ENSALADA CHAMI NORMAL CON VINAGRETA  lomo a la parrilla 40, pescado a la plancha 32, asado 32, milanesa de pollo 32, milanesa de pescado 32, lomo apanado 40
+ENSALADA CHAMI NORMAL SIN VINAGRETA  lomo a la parrilla 40, pescado a la plancha 32, asado 32, milanesa de pollo 32, milanesa de pescado 32, lomo apanado 40
+ENSALADA CHAMI COCIDA CON VINAGRETA  lomo a la parrilla 40, pescado a la plancha 32, asado 32, milanesa de pollo 32, milanesa de pescado 32, lomo apanado 40
+ENSALADA CHAMI COCIDA SIN VINAGRETA  lomo a la parrilla 40, pescado a la plancha 32, asado 32, milanesa de pollo 32, milanesa de pescado 32, lomo apanado 40
+ 
+
+DUO -> CEBICHE + CHICHARRON
+       CEBICHE + ARROZ CON MARISCOS
+       CEBICHE + CHAUFA DE MARISCOS
+       CHICHARRON + CHAUFA DE MARISCOS 
+       CHICHARRON + ARROZ CON MARISCOS
+       
+
+38
+
+TRIO -> CEVICHE + CHICHARRON + ARROZ CON MARISCOS  42
+
+PARIHUELA 40
+TRIO - CEBICHE+CHICHARRON+ARROZ C MARISCOS
+TRIO - CEBICHE+CHICHARON+CHAUFA D MARISCOS
+
+
+patita, cau cau, carapulcra, aji de gallina, arroz
+
+armar plato 
+
+
+

@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF6C8F19-3E7A-472A-A0E7-F039389F9E76}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GKCOMSYSTEMCHAMIBEN</RootNamespace>
+    <AssemblyName>GK COMSYSTEM CHAMIBEN</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>..\libs\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\butt rework\libs\mysql-connector-net-8.0.21-noinstall\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="XanderUI">
+      <HintPath>C:\Users\USER\Documents\XanderUI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CebicheCustom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CebicheCustom.Designer.cs">
+      <DependentUpon>CebicheCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChamiEnsaladaCustom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChamiEnsaladaCustom.Designer.cs">
+      <DependentUpon>ChamiEnsaladaCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="coment1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="coment1.Designer.cs">
+      <DependentUpon>coment1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="coment2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="coment2.Designer.cs">
+      <DependentUpon>coment2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="coment4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="coment4.Designer.cs">
+      <DependentUpon>coment4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion.Designer.cs">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearTicket.cs" />
+    <Compile Include="Duo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Duo.Designer.cs">
+      <DependentUpon>Duo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="coment3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="coment3.Designer.cs">
+      <DependentUpon>coment3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LecheTigreCustom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LecheTigreCustom.Designer.cs">
+      <DependentUpon>LecheTigreCustom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ronda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ronda.Designer.cs">
+      <DependentUpon>Ronda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trio.Designer.cs">
+      <DependentUpon>Trio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Verif.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Verif.Designer.cs">
+      <DependentUpon>Verif.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CebicheCustom.resx">
+      <DependentUpon>CebicheCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChamiEnsaladaCustom.resx">
+      <DependentUpon>ChamiEnsaladaCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="coment1.resx">
+      <DependentUpon>coment1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="coment2.resx">
+      <DependentUpon>coment2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="coment4.resx">
+      <DependentUpon>coment4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion.resx">
+      <DependentUpon>Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Duo.resx">
+      <DependentUpon>Duo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="coment3.resx">
+      <DependentUpon>coment3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LecheTigreCustom.resx">
+      <DependentUpon>LecheTigreCustom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Ronda.resx">
+      <DependentUpon>Ronda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trio.resx">
+      <DependentUpon>Trio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Verif.resx">
+      <DependentUpon>Verif.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\iconfinder_Cash_register_73439.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Compressed Icon\btnPudding.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\iconfinder_1_20588002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\iconfinder_arrow_right_118732.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\iconfinder_icon-ios7-arrow-right_211607.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\iconfinder_icons-12_799766.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\iconfinder_house-42_3947400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\iconfinder_bar-restaurant-alcohol-drinks-chairs-business-alcoholic_drinks_4848445.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Compressed Icon\btnCoffee.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{ae8081f1-8e16-4c1f-b9cb-f525ec2e4833}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
