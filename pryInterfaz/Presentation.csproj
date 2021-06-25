@@ -52,8 +52,9 @@
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\libs\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data">
-      <HintPath>..\..\..\butt rework\libs\mysql-connector-net-8.0.21-noinstall\v4.5.2\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=8.0.25.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\mysql-connector-net-8.0.21-noinstall\v4.5.2\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

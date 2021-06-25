@@ -360,6 +360,16 @@
               Looks up a localized string similar to Result type of a function is expected to be a collection of RowType or PrimitiveType.
             </summary>
         </member>
+        <member name="T:MySql.Data.MySqlClient.MySqlScriptServices">
+            <summary>
+            Constructs a script that generates a table.
+            </summary>
+        </member>
+        <member name="T:MySql.Data.MySqlClient.MySqlProviderServices">
+            <summary>
+            The <see cref="T:System.Data.Entity.Core.Common.DbProviderServices"/> implementation for the MySqlClient provider for MySQL Server.
+            </summary>
+        </member>
         <member name="M:MySql.Data.MySqlClient.MySqlProviderServices.SetExpectedTypes(System.Data.Entity.Core.Common.CommandTrees.DbCommandTree,MySql.Data.EntityFramework.EFMySqlCommand)">
             <summary>
             Sets the expected column types

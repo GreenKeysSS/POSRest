@@ -74,7 +74,6 @@ C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\Zstandard.N
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\K4os.Compression.LZ4.Streams.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\Ubiety.Dns.Core.dll
-C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\Renci.SshNet.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\System.Buffers.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\K4os.Compression.LZ4.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\K4os.Hash.xxHash.dll
@@ -83,3 +82,5 @@ C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\Domain.pdb
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\MySql.Data.xml
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\DataAccess.pdb
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\obj\Debug\Presentation.csproj.CopyComplete
+C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\MySql.Data.dll
+C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\obj\Debug\GK COMSYSTEM CHAMIBEN.exe.config
