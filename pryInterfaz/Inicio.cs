@@ -13,7 +13,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
 using Domain;
-
+using System.Diagnostics;
 
 namespace GKCOMSYSTEMCHAMIBEN
 {
@@ -35,25 +35,26 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-        string connectionString = @"Server=localhost;Database=chamiben;Uid=root;";
+        //string connectionString = @"Server=localhost;Database=chamiben;Uid=root;";
         // string connectionString2 = @"Server=greasesoftwaresolutions.mysql.database.azure.com;Port=3306;Database=chamiben;Uid=nilver@greasesoftwaresolutions;Pwd=Kimberly16;CheckParameters=False;";
 
 
 
-        public Int16 order;
-        public Boolean state;
+        public int order;
+        
+        public bool state;
         string mozosname = "";
         public decimal subtotal = 0;
 
         int subtotalprod = 0;
         int currentmesa = 0;
-        int[] mesatotal = new int[35];
+        decimal[] mesatotal = new decimal[35];
         public string printer1;
         public string printer2;
         public string printer3;
-        Boolean helado = true;
-        string coment = "";
-        Boolean custom;
+        bool helado = true;
+        
+        bool custom;
         string tipoplato = "";
 
 
@@ -62,14 +63,12 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
 
             InitializeComponent();
+            MysqldStateResolve();
 
-
-
+           
             //this.FormBorderStyle = FormBorderStyle.None;
             //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             addcolcomanda();
-
-
 
             GridFillBebidas();
             GridFillEntradas();
@@ -88,13 +87,59 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-            ActiveIcons(true);
+           
 
 
             ingresarbtn.BackColor = Color.Transparent;
+
+
+
+
+
             SelectLastNOrder();
+            DisableSafeMode();
 
         }
+        private void DisableSafeMode() {
+
+            ProductModel prod = new ProductModel();
+            prod.DisableSafeMode();
+
+
+        }
+
+        private void MysqldStateResolve() {
+
+            
+            Process[] _proceses = null;
+            _proceses = Process.GetProcessesByName("mysqld");
+
+            if (_proceses.Length != 0)
+            {
+                    
+            }
+            else
+            {
+                try
+                { 
+
+                    Process exeProcess = Process.Start(@"C:\xampp\mysql\bin\mysqld.exe");
+                   
+                    
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+               
+
+            }
+
+        }
+
 
         public string GetMozosName() {
 
@@ -317,10 +362,6 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     guardarbtn1.Enabled = true;
 
-
-
-                    MySqlConnection mysqlCon = new MySqlConnection(connectionString);
-
                     mozosname = GetMozosName();
 
 
@@ -332,7 +373,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                             if (row.IsNewRow) continue;
 
                             ProductModel prod = new ProductModel();
-                            prod.SaveSell(mozosname, currentmesa,Convert.ToString( row.Cells[0].Value),
+                            prod.SaveSell(mozosname, currentmesa,Convert.ToString(row.Cells[0].Value),
                                 Convert.ToDecimal(row.Cells[1].Value), Convert.ToInt16(row.Cells[2].Value),
                                 Convert.ToDecimal(row.Cells[3].Value), Convert.ToString(row.Cells[5].Value));
 
@@ -341,14 +382,16 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                         catch (Exception ex)
                         {
+                            Console.WriteLine("heres ht eerrror");
                             MessageBox.Show(ex.Message);
+                          
                         }
 
 
 
                     }
 
-                    MakeTicket(mozosname, dgvlistatotal,subtotal,printer3);
+                    MakeTicket(mozosname, dgvlistatotal,Convert.ToDecimal(totaltxtmesa.Text),printer3);
                     
                     dgvlistatotal.Rows.Clear();
 
@@ -443,7 +486,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             // ticket.TextoIzquierda("");
             //ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
             ticket.CortaTicket();
-            ticket.ImprimirTicket(printer);//Nombre de la impresora ticketera
+            ticket.ImprimirTicket(printer3);//Nombre de la impresora ticketera
 
 
 
@@ -452,7 +495,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         private void deletebtntotal1_Click(object sender, EventArgs e)
         {
-            if (dgvlistatotal.SelectedCells.Count > 0)
+            if (dgvlistatotal.Rows.Count > 0)
             {
 
 
@@ -468,187 +511,191 @@ namespace GKCOMSYSTEMCHAMIBEN
                 else
                 {
 
+                    
 
 
-                    string message = "¿Deseas anular el producto seleccionado?";
-                    string caption = "Irreversible";
-                    MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
-                    DialogResult result;
+                        string message = "¿Deseas anular el producto seleccionado?";
+                        string caption = "Irreversible";
+                        MessageBoxButtons buttons = MessageBoxButtons.YesNoCancel;
+                        DialogResult result;
 
-                    // Displays the MessageBox.
-                    result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Warning);
-                    if (result == System.Windows.Forms.DialogResult.Yes)
-                    {
-
-
-                        int selectedrowindex = dgvlistatotal.SelectedCells[3].RowIndex;
-
-                        DataGridViewRow selectedRow = dgvlistatotal.Rows[selectedrowindex];
-
-                        string a = Convert.ToString(selectedRow.Cells[3].Value);
-
-
-                        mesatotal[1] -= Convert.ToInt16(a);
-                        totaltxtmesa.Text = mesatotal[1].ToString();
-
-                        dgvlistatotal.Rows.Add(row1.Cells[0].Value.ToString() + " -- ELIMINADO", row1.Cells[1].Value.ToString(), row1.Cells[2].Value.ToString(), row1.Cells[3].Value.ToString(), row1.Cells[4].Value.ToString(), row1.Cells[5].Value.ToString());
-
-                        dgvlistatotal.Rows.RemoveAt(dgvlistatotal.CurrentRow.Index);
-
-
-
-                        if (tipoplato == "cocina")
-
+                        // Displays the MessageBox.
+                        result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Warning);
+                        if (result == System.Windows.Forms.DialogResult.Yes)
                         {
-                            CrearTicket ticket = new CrearTicket();
+
+
+                            int selectedrowindex = dgvlistatotal.SelectedCells[3].RowIndex;
+
+                            DataGridViewRow selectedRow = dgvlistatotal.Rows[selectedrowindex];
+
+                            string a = Convert.ToString(selectedRow.Cells[3].Value);
+
+
+                            mesatotal[1] -= Convert.ToInt16(a);
+                            totaltxtmesa.Text = mesatotal[1].ToString();
+
+                            dgvlistatotal.Rows.Add(row1.Cells[0].Value.ToString() + " -- ELIMINADO", row1.Cells[1].Value.ToString(), row1.Cells[2].Value.ToString(), row1.Cells[3].Value.ToString(), row1.Cells[4].Value.ToString(), row1.Cells[5].Value.ToString());
+
+                            dgvlistatotal.Rows.RemoveAt(dgvlistatotal.CurrentRow.Index);
 
 
 
-                            //ticket.AbreCajon();//Para abrir el cajon de dinero.
+                            if (tipoplato == "cocina")
 
-                            //De aqui en adelante pueden formar su ticket a su gusto... Les muestro un ejemplo
-
-                            //Datos de la cabecera del Ticket.
-                            //ticket.TextoCentro("CHAMI - BENAVIDES");
-                            //ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-                            //ticket.TextoIzquierda("DIREC: DIRECCION DE LA EMPRESA");
-                            //ticket.TextoIzquierda("TELEF: 4530000");
-                            //ticket.TextoIzquierda("R.F.C: XXXXXXXXX-XX");
-                            //ticket.TextoIzquierda("EMAIL: cmcmarce14@gmail.com");//Es el mio por si me quieren contactar ...
-                            ticket.TextoIzquierda("");
-                            //ticket.TextoExtremos("Caja # 1", "Ticket # 002-0000006");
-                            //ticket.lineasAsteriscos();
-
-                            //Sub cabecera.
-                            ticket.TextoIzquierda("");
-                            ticket.TextoIzquierda("MOZO: " + mozosnametxt1.Text);
-                            ticket.TextoIzquierda("MESA: " + "1");
-                            ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
-                            ticket.TextoIzquierda("");
-                            ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToLongTimeString());
-                            ticket.lineasAsteriscos();
-
-                            //Articulos a vender.
-                            //ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
-                            //ticket.lineasAsteriscos();
-                            //Si tiene una DataGridView donde estan sus articulos a vender pueden usar esta manera para agregarlos al ticket.
-                            //dgvLista es el nombre del datagridview
+                            {
+                                CrearTicket ticket = new CrearTicket();
 
 
 
-                            ticket.AgregaArticulo("-" + row1.Cells[0].Value.ToString(), int.Parse(row1.Cells[2].Value.ToString()),
-                            decimal.Parse(row1.Cells[1].Value.ToString()), decimal.Parse(row1.Cells[3].Value.ToString()));
-                            /*
-                            ticket.AgregaArticulo("Articulo A", 2, 20, 40);
-                            ticket.AgregaArticulo("Articulo B", 1, 10, 10);
-                            ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);*/
-                            ticket.lineasIgual();
+                                //ticket.AbreCajon();//Para abrir el cajon de dinero.
 
-                            //Resumen de la venta. Sólo son ejemplos
-                            //ticket.AgregarTotales("         SUBTOTAL......$", 100);
-                            //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
-                            //ticket.AgregarTotales("TOTAL.S/", Convert.ToDecimal(mesatotal[1]));
-                            //ticket.TextoIzquierda("");
-                            // ticket.AgregarTotales("         EFECTIVO......$", 200);
-                            // ticket.AgregarTotales("         CAMBIO........$", 0);
+                                //De aqui en adelante pueden formar su ticket a su gusto... Les muestro un ejemplo
 
-                            //Texto final del Ticket.
-                            ticket.TextoIzquierda("");
-                            ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            //ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: 3");
-                            // ticket.TextoIzquierda("");
-                            //ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
-                            ticket.CortaTicket();
-                            ticket.ImprimirTicket(printer2);//Nombre de la impresora ticketera
+                                //Datos de la cabecera del Ticket.
+                                //ticket.TextoCentro("CHAMI - BENAVIDES");
+                                //ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
+                                //ticket.TextoIzquierda("DIREC: DIRECCION DE LA EMPRESA");
+                                //ticket.TextoIzquierda("TELEF: 4530000");
+                                //ticket.TextoIzquierda("R.F.C: XXXXXXXXX-XX");
+                                //ticket.TextoIzquierda("EMAIL: cmcmarce14@gmail.com");//Es el mio por si me quieren contactar ...
+                                ticket.TextoIzquierda("");
+                                //ticket.TextoExtremos("Caja # 1", "Ticket # 002-0000006");
+                                //ticket.lineasAsteriscos();
+
+                                //Sub cabecera.
+                                ticket.TextoIzquierda("");
+                                ticket.TextoIzquierda("MOZO: " + mozosnametxt1.Text);
+                                ticket.TextoIzquierda("MESA: " + "1");
+                                ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
+                                ticket.TextoIzquierda("");
+                                ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToLongTimeString());
+                                ticket.lineasAsteriscos();
+
+                                //Articulos a vender.
+                                //ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
+                                //ticket.lineasAsteriscos();
+                                //Si tiene una DataGridView donde estan sus articulos a vender pueden usar esta manera para agregarlos al ticket.
+                                //dgvLista es el nombre del datagridview
+
+
+
+                                ticket.AgregaArticulo("-" + row1.Cells[0].Value.ToString(), int.Parse(row1.Cells[2].Value.ToString()),
+                                decimal.Parse(row1.Cells[1].Value.ToString()), decimal.Parse(row1.Cells[3].Value.ToString()));
+                                /*
+                                ticket.AgregaArticulo("Articulo A", 2, 20, 40);
+                                ticket.AgregaArticulo("Articulo B", 1, 10, 10);
+                                ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);*/
+                                ticket.lineasIgual();
+
+                                //Resumen de la venta. Sólo son ejemplos
+                                //ticket.AgregarTotales("         SUBTOTAL......$", 100);
+                                //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
+                                //ticket.AgregarTotales("TOTAL.S/", Convert.ToDecimal(mesatotal[1]));
+                                //ticket.TextoIzquierda("");
+                                // ticket.AgregarTotales("         EFECTIVO......$", 200);
+                                // ticket.AgregarTotales("         CAMBIO........$", 0);
+
+                                //Texto final del Ticket.
+                                ticket.TextoIzquierda("");
+                                ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                //ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: 3");
+                                // ticket.TextoIzquierda("");
+                                //ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+                                ticket.CortaTicket();
+                                ticket.ImprimirTicket(printer2);//Nombre de la impresora ticketera
+
+
+                            }
+
+                            else
+                            {
+                                CrearTicket ticket = new CrearTicket();
+
+
+
+                                //ticket.AbreCajon();//Para abrir el cajon de dinero.
+
+                                //De aqui en adelante pueden formar su ticket a su gusto... Les muestro un ejemplo
+
+                                //Datos de la cabecera del Ticket.
+                                //ticket.TextoCentro("CHAMI - BENAVIDES");
+                                //ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
+                                //ticket.TextoIzquierda("DIREC: DIRECCION DE LA EMPRESA");
+                                //ticket.TextoIzquierda("TELEF: 4530000");
+                                //ticket.TextoIzquierda("R.F.C: XXXXXXXXX-XX");
+                                //ticket.TextoIzquierda("EMAIL: cmcmarce14@gmail.com");//Es el mio por si me quieren contactar ...
+                                //ticket.TextoIzquierda("");
+                                //ticket.TextoExtremos("Caja # 1", "Ticket # 002-0000006");
+                                //ticket.lineasAsteriscos();
+
+                                //Sub cabecera.
+                                ticket.TextoIzquierda("");
+                                ticket.TextoIzquierda("MOZO: " + mozosnametxt1.Text);
+                                ticket.TextoIzquierda("MESA: " + "1");
+                                ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
+                                ticket.TextoIzquierda("");
+                                ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToLongTimeString());
+                                ticket.lineasAsteriscos();
+
+                                //Articulos a vender.
+                                //ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
+                                // ticket.lineasAsteriscos();
+                                //Si tiene una DataGridView donde estan sus articulos a vender pueden usar esta manera para agregarlos al ticket.
+                                //dgvLista es el nombre del datagridview
+
+
+
+                                ticket.AgregaArticulo("-" + row1.Cells[0].Value.ToString(), int.Parse(row1.Cells[2].Value.ToString()),
+                                decimal.Parse(row1.Cells[1].Value.ToString()), decimal.Parse(row1.Cells[3].Value.ToString()));
+                                /*
+                                ticket.AgregaArticulo("Articulo A", 2, 20, 40);
+                                ticket.AgregaArticulo("Articulo B", 1, 10, 10);
+                                ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);*/
+                                ticket.lineasIgual();
+
+                                //Resumen de la venta. Sólo son ejemplos
+                                //ticket.AgregarTotales("         SUBTOTAL......$", 100);
+                                //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
+                                //ticket.AgregarTotales("TOTAL.S/", Convert.ToDecimal(mesatotal[1]));
+                                //ticket.TextoIzquierda("");
+                                // ticket.AgregarTotales("         EFECTIVO......$", 200);
+                                // ticket.AgregarTotales("         CAMBIO........$", 0);
+
+                                //Texto final del Ticket.
+                                ticket.TextoIzquierda("");
+                                ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
+                                //ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: 3");
+                                // ticket.TextoIzquierda("");
+                                //ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+                                ticket.CortaTicket();
+                                ticket.ImprimirTicket(printer1);//Nombre de la impresora ticketera
+
+                            }
+
 
 
                         }
 
-                        else
-                        {
-                            CrearTicket ticket = new CrearTicket();
 
 
-
-                            //ticket.AbreCajon();//Para abrir el cajon de dinero.
-
-                            //De aqui en adelante pueden formar su ticket a su gusto... Les muestro un ejemplo
-
-                            //Datos de la cabecera del Ticket.
-                            //ticket.TextoCentro("CHAMI - BENAVIDES");
-                            //ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-                            //ticket.TextoIzquierda("DIREC: DIRECCION DE LA EMPRESA");
-                            //ticket.TextoIzquierda("TELEF: 4530000");
-                            //ticket.TextoIzquierda("R.F.C: XXXXXXXXX-XX");
-                            //ticket.TextoIzquierda("EMAIL: cmcmarce14@gmail.com");//Es el mio por si me quieren contactar ...
-                            //ticket.TextoIzquierda("");
-                            //ticket.TextoExtremos("Caja # 1", "Ticket # 002-0000006");
-                            //ticket.lineasAsteriscos();
-
-                            //Sub cabecera.
-                            ticket.TextoIzquierda("");
-                            ticket.TextoIzquierda("MOZO: " + mozosnametxt1.Text);
-                            ticket.TextoIzquierda("MESA: " + "1");
-                            ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
-                            ticket.TextoIzquierda("");
-                            ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToLongTimeString());
-                            ticket.lineasAsteriscos();
-
-                            //Articulos a vender.
-                            //ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
-                            // ticket.lineasAsteriscos();
-                            //Si tiene una DataGridView donde estan sus articulos a vender pueden usar esta manera para agregarlos al ticket.
-                            //dgvLista es el nombre del datagridview
-
-
-
-                            ticket.AgregaArticulo("-" + row1.Cells[0].Value.ToString(), int.Parse(row1.Cells[2].Value.ToString()),
-                            decimal.Parse(row1.Cells[1].Value.ToString()), decimal.Parse(row1.Cells[3].Value.ToString()));
-                            /*
-                            ticket.AgregaArticulo("Articulo A", 2, 20, 40);
-                            ticket.AgregaArticulo("Articulo B", 1, 10, 10);
-                            ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);*/
-                            ticket.lineasIgual();
-
-                            //Resumen de la venta. Sólo son ejemplos
-                            //ticket.AgregarTotales("         SUBTOTAL......$", 100);
-                            //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
-                            //ticket.AgregarTotales("TOTAL.S/", Convert.ToDecimal(mesatotal[1]));
-                            //ticket.TextoIzquierda("");
-                            // ticket.AgregarTotales("         EFECTIVO......$", 200);
-                            // ticket.AgregarTotales("         CAMBIO........$", 0);
-
-                            //Texto final del Ticket.
-                            ticket.TextoIzquierda("");
-                            ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
-                            //ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: 3");
-                            // ticket.TextoIzquierda("");
-                            //ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
-                            ticket.CortaTicket();
-                            ticket.ImprimirTicket(printer1);//Nombre de la impresora ticketera
-
-                        }
-
-
-
-                    }
 
 
 
@@ -667,13 +714,17 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
             }
-
-            if (dgvlistatotal.SelectedCells.Count == 0)
+            else
             {
-                deletebtntotal.Enabled = false;
+                string message = "No existen productos a eliminar";
+                string caption = "Obs.";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
 
 
+                result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Warning);
             }
+
         }
 
 
@@ -1159,7 +1210,7 @@ namespace GKCOMSYSTEMCHAMIBEN
            
 
         }
-
+        /*
         public void SelectLastPrinter1()
         {
             MySqlConnection mysqlCon = new MySqlConnection(connectionString);
@@ -1189,53 +1240,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
         }
-        public void SelectLastNOrder()
-        {
-            MySqlConnection mysqlCon = new MySqlConnection(connectionString);
-            MySqlCommand cmd2 = new MySqlCommand();
-            cmd2 = mysqlCon.CreateCommand();
-
-
-            string queryStr = "select numb from lastorder ORDER BY id DESC LIMIT 1;";
-
-
-            cmd2 = new MySql.Data.MySqlClient.MySqlCommand(queryStr, mysqlCon);
-
-            mysqlCon.Open();
-
-            var queryResult = cmd2.ExecuteScalar();//Return an object so first check for null
-
-            if (queryResult != null)
-            {
-            
-                order = Convert.ToInt16(queryResult);
-                
-            }
-            else
-            {
-               
-                string message = "Se cerrara el programa, vuelvalo a abrir ";
-                string title = "Error";
-                MessageBoxButtons buttons = MessageBoxButtons.OK;
-                DialogResult result = MessageBox.Show(message, title, buttons);
-                if (result == DialogResult.OK)
-                {
-                    this.Close();
-                }
-
-
-
-            }
-
-
-
-
-
-            //select* from getLastRecord ORDER BY id DESC LIMIT 1;
-            mysqlCon.Close();
-
-
-        }
+        
         public void SelectLastPrinter2()
         {
             MySqlConnection mysqlCon = new MySqlConnection(connectionString);
@@ -1293,32 +1298,35 @@ namespace GKCOMSYSTEMCHAMIBEN
             mysqlCon.Close();
 
 
+        }*/
+        public void SelectLastNOrder()
+        {
+            try
+            {
+
+
+                ProductModel prod = new ProductModel();
+
+                order = prod.GetLastNO();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+
+
+
         }
         public void SaveLastOrder()
         {
             try
             {
-                MySqlConnection mysqlCon = new MySqlConnection(connectionString);
 
-                MySqlCommand cmd = new MySqlCommand();
-                cmd = mysqlCon.CreateCommand();
-
-
-                cmd.Parameters.AddWithValue("@order", order);
-
-
-
-                cmd.CommandText = " UPDATE lastorder SET numb = @order WHERE id = 1";
-
-
-
-
-
-                mysqlCon.Open();
-                cmd.ExecuteNonQuery();
-                mysqlCon.Close();
-
-
+               ProductModel prod = new ProductModel();
+               prod.SaveLastNO(order);
 
             }
 
@@ -1372,10 +1380,16 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         private void ActiveIcons(Boolean active)
         {
+            bebidabtn1.IconVisible = active;
+            entradabtn1.IconVisible = active;
+            platofondobtn1.IconVisible = active;
+            postrebtn1.IconVisible = active;
+
             printbtn.IconVisible = active;
             printbtn2.IconVisible = active;
             printbtn3.IconVisible = active;
             printbtn4.IconVisible = active;
+
 
             criollobtn.IconVisible = active;
             marinobtn.IconVisible = active;
@@ -1961,16 +1975,15 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         }
 
-        private void bunifuFlatButton1_Click_1(object sender, EventArgs e)
+        private void printbtn_Click(object sender, EventArgs e)
         {
-
 
             DataGridViewRow row1 = bebidasdgv.CurrentRow;
             DataGridViewRow row2 = dgvorden.CurrentRow;
 
 
 
-            MySqlConnection mysqlCon = new MySqlConnection(connectionString);
+            //MySqlConnection mysqlCon = new MySqlConnection(connectionString);
 
 
             string message = "¿Deseas imprimir la orden?";
@@ -1980,7 +1993,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
             // Displays the MessageBox.
             result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
 
                 if (dgvorden.RowCount != 0)
@@ -1988,96 +2001,29 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-                    coment = coment1txt.Text;
+
 
                     order++;
 
                     SaveLastOrder();
 
-                    CrearTicket ticket = new CrearTicket();
 
 
 
-                    //ticket.AbreCajon();//Para abrir el cajon de dinero.
+                    if (currentmesa == 1){
+                        mesa1btn.Normalcolor = Color.FromArgb(192, 32, 22);
+                        mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname;
+                        enableradio1(false);
 
-                    //De aqui en adelante pueden formar su ticket a su gusto... Les muestro un ejemplo
+                        foreach (DataGridViewRow row3 in dgvorden.Rows){
+                            if (row3.IsNewRow) continue;
+                            dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "BEBIDAS"); } }
 
-                    //Datos de la cabecera del Ticket.
-                    ticket.TextoCentro("CHAMI - BENAVIDES");
-                    //ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-                    //ticket.TextoIzquierda("DIREC: DIRECCION DE LA EMPRESA");
-                    //ticket.TextoIzquierda("TELEF: 4530000");
-                    //ticket.TextoIzquierda("R.F.C: XXXXXXXXX-XX");
-                    //ticket.TextoIzquierda("EMAIL: cmcmarce14@gmail.com");//Es el mio por si me quieren contactar ...
-                    ticket.TextoIzquierda("");
-                    //ticket.TextoExtremos("Caja # 1", "Ticket # 002-0000006");
-                    ticket.lineasAsteriscos();
-
-                    //Sub cabecera.
-                    ticket.TextoIzquierda("");
-
-                    ticket.TextoIzquierda("Nº ORDEN: " + order);
-
-                    ticket.TextoIzquierda("MOZO: " + mozosname);
-                    ticket.TextoIzquierda("MESA: " + currentmesa);
-                    ticket.TextoIzquierda("SECCION: " + "BAR");
-                    //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToLongTimeString());
-                    ticket.lineasAsteriscos();
-
-                    //Articulos a vender.
-                    ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
-                    ticket.lineasAsteriscos();
-                    //Si tiene una DataGridView donde estan sus articulos a vender pueden usar esta manera para agregarlos al ticket.
-                    foreach (DataGridViewRow fila in dgvorden.Rows)//dgvLista es el nombre del datagridview
-                    {
-                        if (fila.IsNewRow) continue;
-
-                        ticket.AgregaArticulo("-" + fila.Cells[0].Value.ToString(), int.Parse(fila.Cells[2].Value.ToString()),
-                        decimal.Parse(fila.Cells[1].Value.ToString()), decimal.Parse(fila.Cells[3].Value.ToString()));
-                    }/*
-                    ticket.AgregaArticulo("Articulo A", 2, 20, 40);
-                    ticket.AgregaArticulo("Articulo B", 1, 10, 10);
-                    ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);*/
-                    ticket.lineasIgual();
-
-                    //Resumen de la venta. Sólo son ejemplos
-                    //ticket.AgregarTotales("         SUBTOTAL......$", 100);
-                    //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
-                    //ticket.AgregarTotales("TOTAL.........S/", Convert.ToDecimal(subtotal));
-                    ticket.TextoIzquierda("Comentarios: " + coment);
-                    // ticket.AgregarTotales("         EFECTIVO......$", 200);
-                    // ticket.AgregarTotales("         CAMBIO........$", 0);
-
-                    //Texto final del Ticket.
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    //ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: 3");
-                    // ticket.TextoIzquierda("");
-                    //ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
-                    ticket.CortaTicket();
-                    ticket.ImprimirTicket(printer1);//Nombre de la impresora ticketera
-
-
-                    if (currentmesa == 1) { mesa1btn.Normalcolor = Color.FromArgb(192, 32, 22); mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "BEBIDAS"); } }
                   
 
+                    PrintOrder(dgvorden, coment1txt.Text, printer1);
 
-
-
-
-
-
-
-
-
-
-
+                    
 
                     //////////////////////////////////
                     /*//*/
@@ -2087,20 +2033,14 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-                    if (currentmesa == 1) { mesatotal[1] += Convert.ToInt16(subtotaltxt.Text); totaltxtmesa.Text = mesatotal[1].ToString(); ChamiTab.SelectedTab = mesacom; if (dgvlistatotal.SelectedCells.Count != 0) { deletebtntotal.Enabled = true; } }
-                   
+                    if (currentmesa == 1)
+                    { mesatotal[1] += Convert.ToDecimal(subtotaltxt.Text);
+                        totaltxtmesa.Text = Convert.ToString(mesatotal[1]);
+                        ChamiTab.SelectedTab = mesacom;
+                        /*if (dgvlistatotal.SelectedCells.Count != 0)
+                        { deletebtntotal.Enabled = true; }*/
 
-
-
-
-
-
-
-
-
-
-
-
+                    }
 
 
 
@@ -2125,6 +2065,78 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
             }
+        }
+        public void PrintOrder(DataGridView dgv, string comment, string printer) {
+
+            CrearTicket ticket = new CrearTicket();
+
+
+
+            //ticket.AbreCajon();//Para abrir el cajon de dinero.
+
+            //De aqui en adelante pueden formar su ticket a su gusto... Les muestro un ejemplo
+
+            //Datos de la cabecera del Ticket.
+            ticket.TextoCentro("CHAMI - BENAVIDES");
+            //ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
+            //ticket.TextoIzquierda("DIREC: DIRECCION DE LA EMPRESA");
+            //ticket.TextoIzquierda("TELEF: 4530000");
+            //ticket.TextoIzquierda("R.F.C: XXXXXXXXX-XX");
+            //ticket.TextoIzquierda("EMAIL: cmcmarce14@gmail.com");//Es el mio por si me quieren contactar ...
+            ticket.TextoIzquierda("");
+            //ticket.TextoExtremos("Caja # 1", "Ticket # 002-0000006");
+            ticket.lineasAsteriscos();
+
+            //Sub cabecera.
+            ticket.TextoIzquierda("");
+
+            ticket.TextoIzquierda("Nº ORDEN: " + order);
+            ticket.TextoIzquierda("MOZO: " + mozosname);
+            ticket.TextoIzquierda("MESA: " + currentmesa);
+            ticket.TextoIzquierda("SECCION: " + "BAR");
+            //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
+            ticket.TextoIzquierda("");
+            ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToLongTimeString());
+            ticket.lineasAsteriscos();
+
+            //Articulos a vender.
+            ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
+            ticket.lineasAsteriscos();
+            //Si tiene una DataGridView donde estan sus articulos a vender pueden usar esta manera para agregarlos al ticket.
+            foreach (DataGridViewRow fila in dgv.Rows)//dgvLista es el nombre del datagridview
+            {
+                if (fila.IsNewRow) continue;
+
+                ticket.AgregaArticulo("-" + fila.Cells[0].Value.ToString(), int.Parse(fila.Cells[2].Value.ToString()),
+                decimal.Parse(fila.Cells[1].Value.ToString()), decimal.Parse(fila.Cells[3].Value.ToString()));
+            }/*
+                    ticket.AgregaArticulo("Articulo A", 2, 20, 40);
+                    ticket.AgregaArticulo("Articulo B", 1, 10, 10);
+                    ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);*/
+            ticket.lineasIgual();
+
+            //Resumen de la venta. Sólo son ejemplos
+            //ticket.AgregarTotales("         SUBTOTAL......$", 100);
+            //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
+            //ticket.AgregarTotales("TOTAL.........S/", Convert.ToDecimal(subtotal));
+            ticket.TextoIzquierda("Comentarios: " + comment);
+            // ticket.AgregarTotales("         EFECTIVO......$", 200);
+            // ticket.AgregarTotales("         CAMBIO........$", 0);
+
+            //Texto final del Ticket.
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            ticket.TextoIzquierda("");
+            //ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: 3");
+            // ticket.TextoIzquierda("");
+            //ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+            ticket.CortaTicket();
+            ticket.ImprimirTicket(printer);//Nombre de la impresora ticketera
+
+
 
         }
 
@@ -2405,7 +2417,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             int unidadesprod = Convert.ToInt16(unidades);
             int subtotalprod = precioprod * unidadesprod;
 
-            MySqlConnection mysqlCon = new MySqlConnection(connectionString);
+            
 
 
             string message = "¿Deseas imprimir la orden?";
@@ -2421,84 +2433,16 @@ namespace GKCOMSYSTEMCHAMIBEN
                 if (dgvorden2.RowCount != 0)
                 {
 
-                    coment = coment2txt.Text;
+                   
 
                     order++;
 
                     SaveLastOrder();
-                    CrearTicket ticket = new CrearTicket();
 
-
-
-                    //ticket.AbreCajon();//Para abrir el cajon de dinero.
-
-                    //De aqui en adelante pueden formar su ticket a su gusto... Les muestro un ejemplo
-
-                    //Datos de la cabecera del Ticket.
-                    ticket.TextoCentro("CHAMI - BENAVIDES");
-                    //ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-                    //ticket.TextoIzquierda("DIREC: DIRECCION DE LA EMPRESA");
-                    //ticket.TextoIzquierda("TELEF: 4530000");
-                    //ticket.TextoIzquierda("R.F.C: XXXXXXXXX-XX");
-                    //ticket.TextoIzquierda("EMAIL: cmcmarce14@gmail.com");//Es el mio por si me quieren contactar ...
-                    ticket.TextoIzquierda("");
-                    //ticket.TextoExtremos("Caja # 1", "Ticket # 002-0000006");
-                    ticket.lineasAsteriscos();
-
-                    //Sub cabecera.
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("Nº ORDEN: " + order);
-                    ticket.TextoIzquierda("MOZO: " + mozosname);
-                    ticket.TextoIzquierda("MESA: " + currentmesa);
-                    ticket.TextoIzquierda("SECCION: " + "COCINA");
-                    //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToLongTimeString());
-                    ticket.lineasAsteriscos();
-
-                    //Articulos a vender.
-                    ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
-                    ticket.lineasAsteriscos();
-                    //Si tiene una DataGridView donde estan sus articulos a vender pueden usar esta manera para agregarlos al ticket.
-                    foreach (DataGridViewRow fila in dgvorden2.Rows)//dgvLista es el nombre del datagridview
-                    {
-                        if (fila.IsNewRow) continue;
-
-                        ticket.AgregaArticulo("-" + fila.Cells[0].Value.ToString(), int.Parse(fila.Cells[2].Value.ToString()),
-                        decimal.Parse(fila.Cells[1].Value.ToString()), decimal.Parse(fila.Cells[3].Value.ToString()));
-                    }/*
-                    ticket.AgregaArticulo("Articulo A", 2, 20, 40);
-                    ticket.AgregaArticulo("Articulo B", 1, 10, 10);
-                    ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);*/
-                    ticket.lineasIgual();
-
-                    //Resumen de la venta. Sólo son ejemplos
-                    //ticket.AgregarTotales("         SUBTOTAL......$", 100);
-                    //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
-                    //ticket.AgregarTotales("TOTAL.........S/", Convert.ToDecimal(subtotal));
-                    ticket.TextoIzquierda("Comentarios: " + coment);
-                    // ticket.AgregarTotales("         EFECTIVO......$", 200);
-                    // ticket.AgregarTotales("         CAMBIO........$", 0);
-
-                    //Texto final del Ticket.
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    //ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: 3");
-                    // ticket.TextoIzquierda("");
-                    //ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
-                    ticket.CortaTicket();
-                    ticket.ImprimirTicket(printer2);//Nombre de la impresora ticketera
+                    PrintOrder(dgvorden2,coment2txt.Text,printer2);
 
 
                     if (currentmesa == 1) { mesa1btn.Normalcolor = Color.FromArgb(192, 32, 22); mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden2.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "ENTRADAS"); } }
-                
-
-
-
                     //////////////////////////////////
                     /*//*/
                     dgvorden2.Rows.Clear();//////
@@ -2971,7 +2915,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             int unidadesprod = Convert.ToInt16(unidades);
             int subtotalprod = precioprod * unidadesprod;
 
-            MySqlConnection mysqlCon = new MySqlConnection(connectionString);
+           
 
 
             string message = "¿Deseas imprimir la orden?";
@@ -2987,84 +2931,14 @@ namespace GKCOMSYSTEMCHAMIBEN
                 if (dgvorden3.RowCount != 0)
                 {
 
-                    coment = coment3txt.Text;
-
+                   
                     order++;
 
                     SaveLastOrder();
 
 
-
-                    CrearTicket ticket = new CrearTicket();
-
-
-
-                    //ticket.AbreCajon();//Para abrir el cajon de dinero.
-
-                    //De aqui en adelante pueden formar su ticket a su gusto... Les muestro un ejemplo
-
-                    //Datos de la cabecera del Ticket.
-                    ticket.TextoCentro("CHAMI - BENAVIDES");
-                    //ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-                    //ticket.TextoIzquierda("DIREC: DIRECCION DE LA EMPRESA");
-                    //ticket.TextoIzquierda("TELEF: 4530000");
-                    //ticket.TextoIzquierda("R.F.C: XXXXXXXXX-XX");
-                    //ticket.TextoIzquierda("EMAIL: cmcmarce14@gmail.com");//Es el mio por si me quieren contactar ...
-                    ticket.TextoIzquierda("");
-                    //ticket.TextoExtremos("Caja # 1", "Ticket # 002-0000006");
-                    ticket.lineasAsteriscos();
-
-                    //Sub cabecera.
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("Nº ORDEN: " + order);
-                    ticket.TextoIzquierda("MOZO: " + mozosname);
-                    ticket.TextoIzquierda("MESA: " + currentmesa);
-                    ticket.TextoIzquierda("SECCION: " + "COCINA");
-                    //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToLongTimeString());
-                    ticket.lineasAsteriscos();
-
-                    //Articulos a vender.
-                    ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
-                    ticket.lineasAsteriscos();
-                    //Si tiene una DataGridView donde estan sus articulos a vender pueden usar esta manera para agregarlos al ticket.
-                    foreach (DataGridViewRow fila in dgvorden3.Rows)//dgvLista es el nombre del datagridview
-                    {
-                        if (fila.IsNewRow) continue;
-
-                        ticket.AgregaArticulo("-" + fila.Cells[0].Value.ToString(), int.Parse(fila.Cells[2].Value.ToString()),
-                        decimal.Parse(fila.Cells[1].Value.ToString()), decimal.Parse(fila.Cells[3].Value.ToString()));
-                    }/*
-                    ticket.AgregaArticulo("Articulo A", 2, 20, 40);
-                    ticket.AgregaArticulo("Articulo B", 1, 10, 10);
-                    ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);*/
-                    ticket.lineasIgual();
-
-                    //Resumen de la venta. Sólo son ejemplos
-                    //ticket.AgregarTotales("         SUBTOTAL......$", 100);
-                    //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
-                    //ticket.AgregarTotales("TOTAL.........S/", Convert.ToDecimal(subtotal));
-                    ticket.TextoIzquierda("Comentarios: " + coment);
-                    // ticket.AgregarTotales("         EFECTIVO......$", 200);
-                    // ticket.AgregarTotales("         CAMBIO........$", 0);
-
-                    //Texto final del Ticket.
-                    ticket.TextoIzquierda("");
-                    //ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: 3");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    //ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
-                    ticket.CortaTicket();
-                    ticket.ImprimirTicket(printer2);//Nombre de la impresora ticketera
-
+                    PrintOrder(dgvorden3, coment3txt.Text, printer2);
                     if (currentmesa == 1) { mesa1btn.Normalcolor = Color.FromArgb(192, 32, 22); mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden3.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "PLATOS FONDO"); } }
-                   
-
-
                     //////////////////////////////////
                     /*//*/
                     dgvorden3.Rows.Clear();//////
@@ -3255,7 +3129,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             int unidadesprod = Convert.ToInt16(unidades);
             int subtotalprod = precioprod * unidadesprod;
 
-            MySqlConnection mysqlCon = new MySqlConnection(connectionString);
+           // MySqlConnection mysqlCon = new MySqlConnection(connectionString);
 
 
             string message = "¿Deseas imprimir la orden?";
@@ -3272,77 +3146,12 @@ namespace GKCOMSYSTEMCHAMIBEN
                 {
 
 
-                    coment = coment4txt.Text;
+                    
 
                     order++;
                     SaveLastOrder();
+                    PrintOrder(dgvorden4, coment4txt.Text, printer1);
 
-                    CrearTicket ticket = new CrearTicket();
-
-
-
-                    //ticket.AbreCajon();//Para abrir el cajon de dinero.
-
-                    //De aqui en adelante pueden formar su ticket a su gusto... Les muestro un ejemplo
-
-                    //Datos de la cabecera del Ticket.
-                    ticket.TextoCentro("CHAMI - BENAVIDES");
-                    //ticket.TextoIzquierda("EXPEDIDO EN: LOCAL PRINCIPAL");
-                    //ticket.TextoIzquierda("DIREC: DIRECCION DE LA EMPRESA");
-                    //ticket.TextoIzquierda("TELEF: 4530000");
-                    //ticket.TextoIzquierda("R.F.C: XXXXXXXXX-XX");
-                    //ticket.TextoIzquierda("EMAIL: cmcmarce14@gmail.com");//Es el mio por si me quieren contactar ...
-                    ticket.TextoIzquierda("");
-                    //ticket.TextoExtremos("Caja # 1", "Ticket # 002-0000006");
-                    ticket.lineasAsteriscos();
-
-                    //Sub cabecera.
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("Nº ORDEN: " + order);
-                    ticket.TextoIzquierda("MOZO: " + mozosname);
-                    ticket.TextoIzquierda("MESA: " + currentmesa);
-                    ticket.TextoIzquierda("SECCION: " + "BAR");
-                    //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToLongTimeString());
-                    ticket.lineasAsteriscos();
-
-                    //Articulos a vender.
-                    ticket.EncabezadoVenta();//NOMBRE DEL ARTICULO, CANT, PRECIO, IMPORTE
-                    ticket.lineasAsteriscos();
-                    //Si tiene una DataGridView donde estan sus articulos a vender pueden usar esta manera para agregarlos al ticket.
-                    foreach (DataGridViewRow fila in dgvorden4.Rows)//dgvLista es el nombre del datagridview
-                    {
-                        if (fila.IsNewRow) continue;
-
-                        ticket.AgregaArticulo("-" + fila.Cells[0].Value.ToString(), int.Parse(fila.Cells[2].Value.ToString()),
-                        decimal.Parse(fila.Cells[1].Value.ToString()), decimal.Parse(fila.Cells[3].Value.ToString()));
-                    }/*
-                    ticket.AgregaArticulo("Articulo A", 2, 20, 40);
-                    ticket.AgregaArticulo("Articulo B", 1, 10, 10);
-                    ticket.AgregaArticulo("Este es un nombre largo del articulo, para mostrar como se bajan las lineas", 1, 30, 30);*/
-                    ticket.lineasIgual();
-
-                    //Resumen de la venta. Sólo son ejemplos
-                    //ticket.AgregarTotales("         SUBTOTAL......$", 100);
-                    //ticket.AgregarTotales("         IVA...........$", 10.04M);//La M indica que es un decimal en C#
-                    //ticket.AgregarTotales("TOTAL.........S/", Convert.ToDecimal(subtotal));
-                    ticket.TextoIzquierda("Comentarios: " + coment);
-                    // ticket.AgregarTotales("         EFECTIVO......$", 200);
-                    // ticket.AgregarTotales("         CAMBIO........$", 0);
-
-                    //Texto final del Ticket.
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    ticket.TextoIzquierda("");
-                    //ticket.TextoIzquierda("ARTÍCULOS VENDIDOS: 3");
-                    // ticket.TextoIzquierda("");
-                    //ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
-                    ticket.CortaTicket();
-                    ticket.ImprimirTicket(printer1);//Nombre de la impresora ticketera
 
                     if (currentmesa == 1) { mesa1btn.Normalcolor = Color.FromArgb(192, 32, 22); mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden4.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "POSTRES"); } }
                    
@@ -3412,130 +3221,169 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         private void mesa1btn_Click(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
-
             currentmesa = 1;
+            namemesatxt.Text = "Mesa            1";
+            ChamiTab.SelectedTab = mesacom;
+            
+
+
+
+
 
         }
 
         private void mesa2btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 2;
+            namemesatxt.Text = "Mesa            2";
+
+            ChamiTab.SelectedTab = mesacom;
+           
 
 
         }
 
         private void mesa3btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 3;
+            namemesatxt.Text = "Mesa            3";
+            ChamiTab.SelectedTab = mesacom;
+            
 
            
         }
 
         private void mesa4btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 4;
+            namemesatxt.Text = "Mesa            4";
+            ChamiTab.SelectedTab = mesacom;
+            
           
         }
 
         private void mesa5btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 5;
+            namemesatxt.Text = "Mesa            5";
+            ChamiTab.SelectedTab = mesacom;
+            
           
         }
 
         private void mesa6btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 6;
+            namemesatxt.Text = "Mesa            6";
+            ChamiTab.SelectedTab = mesacom;
+            
            
         }
 
         private void mesa7btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 7;
+            namemesatxt.Text = "Mesa            7";
+            ChamiTab.SelectedTab = mesacom;
+            
           
         }
 
         private void mesa8btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 8;
+            namemesatxt.Text = "Mesa            8";
+            ChamiTab.SelectedTab = mesacom;
+            
            
         }
 
         private void mesa9btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 9;
+            namemesatxt.Text = "Mesa            9";
+            ChamiTab.SelectedTab = mesacom;
             
         }
 
         private void mesa10btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 10;
+            namemesatxt.Text = "Mesa            10";
+            ChamiTab.SelectedTab = mesacom;
+            
           
         }
 
         private void mesa11btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 11;
+            namemesatxt.Text = "Mesa            11";
+            ChamiTab.SelectedTab = mesacom;
+            
            
         }
 
         private void mesa12btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 12;
+            namemesatxt.Text = "Mesa            12";
+            ChamiTab.SelectedTab = mesacom;
+            
            
         }
 
         private void mesa13btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 13;
+            namemesatxt.Text = "Mesa            13";
+            ChamiTab.SelectedTab = mesacom;
+            
             
         }
 
         private void mesa14btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 14;
+            namemesatxt.Text = "Mesa            14";
+            ChamiTab.SelectedTab = mesacom;
+           
             
         }
 
         private void mesa15btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 15;
+            namemesatxt.Text = "Mesa            15";
+            ChamiTab.SelectedTab = mesacom;
+            
            
         }
 
         private void mesa16btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 16;
-           
+            namemesatxt.Text = "Mesa            16";
+            ChamiTab.SelectedTab = mesacom;
+            
+
         }
 
         private void mesa17btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 17;
+            namemesatxt.Text = "Mesa            17";
+            ChamiTab.SelectedTab = mesacom;
+            
            
         }
 
         private void mesa18btn_Click_1(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
             currentmesa = 18;
+            namemesatxt.Text = "Mesa            18";
+            ChamiTab.SelectedTab = mesacom;
+           
             
         }
 
@@ -3556,16 +3404,22 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         private void ingresarbtn_Click(object sender, EventArgs e)
         {
+            ActiveIcons(true);
 
             ChamiTab.SelectedTab = Mesastab;
 
-            SelectLastPrinter1();
-            SelectLastPrinter2();
-            SelectLastPrinter3();
+            printer1 = new ProductModel().GetLastPrinter1();
+            printer2 = new ProductModel().GetLastPrinter2();
+            printer3 = new ProductModel().GetLastPrinter3();
 
+
+
+
+
+            
 
         }
-
+        
         private void dgvlista1_SelectionChanged(object sender, EventArgs e)
         {
             DataGridViewRow row1 = bebidasdgv.CurrentRow;
@@ -3605,7 +3459,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message.ToString(), "Elije", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message.ToString(), "Obs.", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
             }
@@ -3748,30 +3602,32 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         private void Inicio_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            
         }
 
         private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
         {
+            
 
         }
 
         private void mesa19btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 19;
+            namemesatxt.Text = "Mesa            1(2P)";
             ChamiTab.SelectedTab = mesacom;
 
-            currentmesa = 19;
+         
 
 
         }
 
         private void mesa20btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 20;
+            namemesatxt.Text = "Mesa            2(2P)";
             ChamiTab.SelectedTab = mesacom;
 
-
-
-            currentmesa = 20;
 
 
 
@@ -3779,22 +3635,21 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         private void mesa21btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 21;
+            namemesatxt.Text = "Mesa            3(2P)";
             ChamiTab.SelectedTab = mesacom;
 
 
-
-            currentmesa = 21;
 
 
         }
 
         private void mesa22btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 22;
+            namemesatxt.Text = "Mesa            4(2P)";
             ChamiTab.SelectedTab = mesacom;
 
-
-
-            currentmesa = 22;
 
 
 
@@ -3802,22 +3657,19 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         private void mesa23btn_Click(object sender, EventArgs e)
         {
-            ChamiTab.SelectedTab = mesacom;
-
-
-
             currentmesa = 23;
+            namemesatxt.Text = "Mesa            5(2P)";
+            ChamiTab.SelectedTab = mesacom;
 
 
         }
 
         private void mesa24btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 24;
+            namemesatxt.Text = "Mesa            6(2P)";
             ChamiTab.SelectedTab = mesacom;
 
-
-
-            currentmesa = 24;
 
 
 
@@ -3825,93 +3677,92 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         private void mesa25btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 25;
+            namemesatxt.Text = "Mesa            7(2P)";
             ChamiTab.SelectedTab = mesacom;
 
-
-
-            currentmesa = 25;
 
 
         }
 
         private void mesa26btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 26;
+            namemesatxt.Text = "Mesa            8(2P)";
             ChamiTab.SelectedTab = mesacom;
 
 
-
-            currentmesa = 26;
 
         }
 
         private void mesa27btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 27;
+            namemesatxt.Text = "Mesa            9(2P)";
             ChamiTab.SelectedTab = mesacom;
 
-
-            currentmesa = 27;
 
         }
 
         private void mesa28btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 28;
+            namemesatxt.Text = "Mesa            10(2P)";
             ChamiTab.SelectedTab = mesacom;
 
-
-
-            currentmesa = 28;
 
         }
 
         private void mesa29btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 29;
+            namemesatxt.Text = "Mesa            11(2P)";
             ChamiTab.SelectedTab = mesacom;
 
 
-
-            currentmesa = 29;
 
 
         }
 
         private void mesa30btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 30;
+            namemesatxt.Text = "Mesa            12(2P)";
             ChamiTab.SelectedTab = mesacom;
 
 
-
-            currentmesa = 30;
 
         }
 
         private void mesa31btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 31;
+            namemesatxt.Text = "Mesa            13(2P)";
             ChamiTab.SelectedTab = mesacom;
 
 
 
-            currentmesa = 31;
 
         }
 
         private void mesa32btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 32;
+            namemesatxt.Text = "Mesa            14(2P)";
             ChamiTab.SelectedTab = mesacom;
 
 
-
-            currentmesa = 32;
 
 
         }
 
         private void mesa33btn_Click(object sender, EventArgs e)
         {
+            currentmesa = 33;
+            namemesatxt.Text = "Mesa            15(2P)";
             ChamiTab.SelectedTab = mesacom;
 
 
-
-            currentmesa = 33;
 
 
         }
@@ -3933,10 +3784,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             mozosnametxt1.Text = "ELMER";
         }
 
-
-
-
-
+        
     }
 }
 

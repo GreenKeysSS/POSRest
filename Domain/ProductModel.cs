@@ -67,25 +67,54 @@ namespace Domain
             product.SaveSell(mozosname,mesa,products,price,unidades,subtotal,tipo);
         }
 
+        public string GetLastPrinter1() {
 
+            return product.GetLastPrinter1();
+        }
+        public string GetLastPrinter2()
+        {
 
+            return product.GetLastPrinter2();
+        }
+        public string GetLastPrinter3()
+        {
 
+            return product.GetLastPrinter3();
+        }
 
 
+        public int GetLastNO() {
 
+            return product.SelectLastNOrder();
 
+        }
 
 
 
+        public void SaveLastNO(int order) {
 
+            product.SaveLastNO(order);
 
+        }
+        public void SetPrinter1(string name)
+        {
 
+            product.SetPrinter1(name);
 
+        }
+        public void SetPrinter2(string name)
+        {
 
+            product.SetPrinter2(name);
 
+        }
 
+        public void SetPrinter3(string name)
+        {
 
+            product.SetPrinter3(name);
 
+        }
 
 
 
@@ -136,7 +165,11 @@ namespace Domain
 
 
 
-            public bool SaveSell(string datetime) {
+
+
+
+
+        public bool SaveSell(string datetime) {
             try
             {
                 product.SaveSell(datetime);

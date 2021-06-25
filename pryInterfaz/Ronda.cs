@@ -82,7 +82,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                 object[] row = new object[] { newronda, preciolbl.Text, unidadescmb.Text, subtotallbl.Text };
 
                 start.dgvorden3.Rows.Add(row);
-                int subtotalnuronda = Convert.ToInt16(subtotallbl.Text);
+                decimal subtotalnuronda = Convert.ToInt16(subtotallbl.Text);
 
 
 
@@ -90,9 +90,9 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                 start.subtotal += subtotalnuronda;
 
-                int sub = start.subtotal;
+                decimal sub = start.subtotal;
 
-                start.subtotaltxt3.Text = sub.ToString();
+                start.subtotaltxt3.Text = Convert.ToString(sub);
                 start.deletebtn3.Enabled = true;
 
                 this.Close();

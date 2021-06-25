@@ -281,9 +281,9 @@
             this.actualplatotxt1 = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.mozosnametxt1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel3 = new Bunifu.Framework.UI.BunifuCustomLabel();
-            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.final1 = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.namemesatxt = new System.Windows.Forms.Label();
             this.BebidasTab.SuspendLayout();
             this.bunifuGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.coment1btn)).BeginInit();
@@ -432,7 +432,7 @@
             this.coment1btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.coment1btn.TabIndex = 155;
             this.coment1btn.TabStop = false;
-            this.coment1btn.Zoom = 10;
+            this.coment1btn.Zoom = 1;
             this.coment1btn.Click += new System.EventHandler(this.coment1btn_Click);
             // 
             // bunifuCustomLabel84
@@ -473,7 +473,7 @@
             this.icebtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.icebtn.TabIndex = 126;
             this.icebtn.TabStop = false;
-            this.icebtn.Zoom = 5;
+            this.icebtn.Zoom = 1;
             this.icebtn.Click += new System.EventHandler(this.icebtn_Click);
             // 
             // bunifuCustomLabel80
@@ -695,7 +695,7 @@
             this.rightbtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.rightbtn.TabIndex = 104;
             this.rightbtn.TabStop = false;
-            this.rightbtn.Zoom = 4;
+            this.rightbtn.Zoom = 1;
             this.rightbtn.Click += new System.EventHandler(this.rightbtn_Click_2);
             // 
             // cancelbtn
@@ -790,7 +790,7 @@
             this.printbtn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.printbtn.Textcolor = System.Drawing.Color.White;
             this.printbtn.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printbtn.Click += new System.EventHandler(this.bunifuFlatButton1_Click_1);
+            this.printbtn.Click += new System.EventHandler(this.printbtn_Click);
             // 
             // deletebtn
             // 
@@ -804,7 +804,7 @@
             this.deletebtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.deletebtn.TabIndex = 102;
             this.deletebtn.TabStop = false;
-            this.deletebtn.Zoom = 5;
+            this.deletebtn.Zoom = 1;
             this.deletebtn.Click += new System.EventHandler(this.bunifuImageButton1_Click_1);
             // 
             // bebidasdgv
@@ -2785,7 +2785,7 @@
             this.coment2btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.coment2btn.TabIndex = 156;
             this.coment2btn.TabStop = false;
-            this.coment2btn.Zoom = 10;
+            this.coment2btn.Zoom = 1;
             this.coment2btn.Click += new System.EventHandler(this.coment2btn_Click);
             // 
             // cancelbtn2
@@ -3162,7 +3162,7 @@
             this.rightbtn2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.rightbtn2.TabIndex = 130;
             this.rightbtn2.TabStop = false;
-            this.rightbtn2.Zoom = 5;
+            this.rightbtn2.Zoom = 1;
             this.rightbtn2.Click += new System.EventHandler(this.rightbtn2_Click);
             // 
             // deletebtn2
@@ -3177,7 +3177,7 @@
             this.deletebtn2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.deletebtn2.TabIndex = 131;
             this.deletebtn2.TabStop = false;
-            this.deletebtn2.Zoom = 5;
+            this.deletebtn2.Zoom = 1;
             this.deletebtn2.Click += new System.EventHandler(this.deletebtn2_Click);
             // 
             // custombtn2
@@ -3192,7 +3192,7 @@
             this.custombtn2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.custombtn2.TabIndex = 132;
             this.custombtn2.TabStop = false;
-            this.custombtn2.Zoom = 5;
+            this.custombtn2.Zoom = 1;
             this.custombtn2.Click += new System.EventHandler(this.custombtn2_Click_1);
             // 
             // PlatoFondoTab
@@ -3581,7 +3581,7 @@
             this.coment3btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.coment3btn.TabIndex = 154;
             this.coment3btn.TabStop = false;
-            this.coment3btn.Zoom = 10;
+            this.coment3btn.Zoom = 1;
             this.coment3btn.Click += new System.EventHandler(this.coment4btn_Click);
             // 
             // bunifuCustomLabel82
@@ -3703,7 +3703,7 @@
             this.rightbtn3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.rightbtn3.TabIndex = 140;
             this.rightbtn3.TabStop = false;
-            this.rightbtn3.Zoom = 5;
+            this.rightbtn3.Zoom = 1;
             this.rightbtn3.Click += new System.EventHandler(this.rightbtn3_Click_1);
             // 
             // actualordertxt3
@@ -3738,7 +3738,7 @@
             this.deletebtn3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.deletebtn3.TabIndex = 141;
             this.deletebtn3.TabStop = false;
-            this.deletebtn3.Zoom = 5;
+            this.deletebtn3.Zoom = 1;
             this.deletebtn3.Click += new System.EventHandler(this.deletebtn3_Click_1);
             // 
             // custombtn3
@@ -3753,7 +3753,7 @@
             this.custombtn3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.custombtn3.TabIndex = 142;
             this.custombtn3.TabStop = false;
-            this.custombtn3.Zoom = 5;
+            this.custombtn3.Zoom = 1;
             this.custombtn3.Click += new System.EventHandler(this.custombtn3_Click);
             // 
             // printbtn3
@@ -4067,7 +4067,7 @@
             this.coment4btn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.coment4btn.TabIndex = 159;
             this.coment4btn.TabStop = false;
-            this.coment4btn.Zoom = 10;
+            this.coment4btn.Zoom = 1;
             this.coment4btn.Click += new System.EventHandler(this.coment4btn_Click_1);
             // 
             // bunifuCustomLabel83
@@ -4187,7 +4187,7 @@
             this.rightbtn4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.rightbtn4.TabIndex = 149;
             this.rightbtn4.TabStop = false;
-            this.rightbtn4.Zoom = 5;
+            this.rightbtn4.Zoom = 1;
             this.rightbtn4.Click += new System.EventHandler(this.rightbtn4_Click_1);
             // 
             // bunifuCustomLabel26
@@ -4235,7 +4235,7 @@
             this.deletebtn4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.deletebtn4.TabIndex = 150;
             this.deletebtn4.TabStop = false;
-            this.deletebtn4.Zoom = 5;
+            this.deletebtn4.Zoom = 1;
             this.deletebtn4.Click += new System.EventHandler(this.deletebtn4_Click_1);
             // 
             // bunifuImageButton1
@@ -4251,7 +4251,7 @@
             this.bunifuImageButton1.TabIndex = 151;
             this.bunifuImageButton1.TabStop = false;
             this.bunifuImageButton1.Visible = false;
-            this.bunifuImageButton1.Zoom = 5;
+            this.bunifuImageButton1.Zoom = 1;
             // 
             // printbtn4
             // 
@@ -4758,6 +4758,7 @@
             this.panelright1.BackColor = System.Drawing.Color.White;
             this.panelright1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelright1.BackgroundImage")));
             this.panelright1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelright1.Controls.Add(this.namemesatxt);
             this.panelright1.Controls.Add(this.deletebtntotal);
             this.panelright1.Controls.Add(this.guardarbtn1);
             this.panelright1.Controls.Add(this.deleteordentotalbtn1);
@@ -4765,7 +4766,6 @@
             this.panelright1.Controls.Add(this.actualplatotxt1);
             this.panelright1.Controls.Add(this.mozosnametxt1);
             this.panelright1.Controls.Add(this.bunifuCustomLabel3);
-            this.panelright1.Controls.Add(this.bunifuCustomLabel2);
             this.panelright1.Controls.Add(this.bunifuCustomLabel1);
             this.panelright1.Controls.Add(this.final1);
             this.panelright1.GradientBottomLeft = System.Drawing.Color.White;
@@ -4792,7 +4792,7 @@
             this.deletebtntotal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.deletebtntotal.TabIndex = 105;
             this.deletebtntotal.TabStop = false;
-            this.deletebtntotal.Zoom = 5;
+            this.deletebtntotal.Zoom = 1;
             this.deletebtntotal.Click += new System.EventHandler(this.deletebtntotal1_Click);
             // 
             // guardarbtn1
@@ -4809,7 +4809,7 @@
             this.guardarbtn1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guardarbtn1.TabIndex = 103;
             this.guardarbtn1.TabStop = false;
-            this.guardarbtn1.Zoom = 5;
+            this.guardarbtn1.Zoom = 1;
             this.guardarbtn1.Click += new System.EventHandler(this.guardarbtn1_Click);
             // 
             // deleteordentotalbtn1
@@ -4824,7 +4824,7 @@
             this.deleteordentotalbtn1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.deleteordentotalbtn1.TabIndex = 104;
             this.deleteordentotalbtn1.TabStop = false;
-            this.deleteordentotalbtn1.Zoom = 5;
+            this.deleteordentotalbtn1.Zoom = 1;
             this.deleteordentotalbtn1.Click += new System.EventHandler(this.deleteordentotalbtn1_Click);
             // 
             // totaltxtmesa
@@ -4890,17 +4890,6 @@
             this.bunifuCustomLabel3.TabIndex = 1;
             this.bunifuCustomLabel3.Text = "Mozo";
             // 
-            // bunifuCustomLabel2
-            // 
-            this.bunifuCustomLabel2.AutoSize = true;
-            this.bunifuCustomLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuCustomLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel2.Location = new System.Drawing.Point(44, 11);
-            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
-            this.bunifuCustomLabel2.Size = new System.Drawing.Size(174, 29);
-            this.bunifuCustomLabel2.TabIndex = 1;
-            this.bunifuCustomLabel2.Text = "Mesa            1";
-            // 
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -4948,6 +4937,17 @@
             this.final1.Textcolor = System.Drawing.Color.Black;
             this.final1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.final1.Click += new System.EventHandler(this.Final1_Click);
+            // 
+            // namemesatxt
+            // 
+            this.namemesatxt.AutoSize = true;
+            this.namemesatxt.BackColor = System.Drawing.Color.Transparent;
+            this.namemesatxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.namemesatxt.Location = new System.Drawing.Point(44, 12);
+            this.namemesatxt.Name = "namemesatxt";
+            this.namemesatxt.Size = new System.Drawing.Size(174, 29);
+            this.namemesatxt.TabIndex = 106;
+            this.namemesatxt.Text = "Mesa            1";
             // 
             // Inicio
             // 
@@ -5197,7 +5197,6 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox actualplatotxt1;
         private Bunifu.Framework.UI.BunifuCustomLabel mozosnametxt1;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel3;
-        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
         private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
         private Bunifu.Framework.UI.BunifuFlatButton final1;
         private Bunifu.Framework.UI.BunifuImageButton coment3btn;
@@ -5263,5 +5262,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton mesa22btn;
         private Bunifu.Framework.UI.BunifuFlatButton mesa33btn;
         private Bunifu.Framework.UI.BunifuImageButton firstfloorbtn;
+        private System.Windows.Forms.Label namemesatxt;
     }
 }

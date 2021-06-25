@@ -167,7 +167,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                 object[] row = new object[] { newceb, custompreciolblceb1.Text, customcmbceb1.Text, customsubtotallblceb1.Text };
 
                 start.dgvorden3.Rows.Add(row);
-                int subtotalnuceb = Convert.ToInt16(customsubtotallblceb1.Text);
+                decimal subtotalnuceb = Convert.ToDecimal(customsubtotallblceb1.Text);
 
 
 
@@ -175,9 +175,9 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                 start.subtotal += subtotalnuceb;
 
-                int sub = start.subtotal;
+                decimal sub = start.subtotal;
 
-                start.subtotaltxt3.Text = sub.ToString();
+                start.subtotaltxt3.Text = Convert.ToString(sub);
                 start.deletebtn3.Enabled = true;
 
                 this.Close();

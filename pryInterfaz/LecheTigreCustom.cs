@@ -92,7 +92,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                 start.dgvorden2.Rows.Add(row);
 
 
-                int subtotalnuceb = Convert.ToInt16(subtotallbl.Text);
+                decimal subtotalnuceb = Convert.ToInt16(subtotallbl.Text);
 
 
 
@@ -100,9 +100,9 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                 start.subtotal += subtotalnuceb;
 
-                int sub = start.subtotal;
+                decimal sub = start.subtotal;
 
-                start.subtotaltxt2.Text = sub.ToString();
+                start.subtotaltxt2.Text = Convert.ToString(sub);
                 start.deletebtn2.Enabled = true;
 
                 this.Close();

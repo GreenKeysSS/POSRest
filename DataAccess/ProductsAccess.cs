@@ -491,6 +491,430 @@ namespace DataAccess
 
         }
 
+        public string GetLastPrinter1()
+        {
+
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+
+                using (var command = new MySqlCommand())
+                {
+
+                    string printer = "";
+                    command.Connection = connection;
+
+                    command.CommandText = @"
+
+                      select Name from printer1 ORDER BY id DESC LIMIT 1
+
+                        ";
+                    
+                    command.CommandType = CommandType.Text;
+                    MySqlDataReader reader = command.ExecuteReader();
+                    Console.WriteLine("entre a verificar si hay filas en printer1");
+
+
+
+                    if (reader.HasRows)
+                    {
+                        try
+                        {
+                            while (reader.Read())
+                            {
+                                Console.WriteLine("entre a ver la fila del printer1");
+
+
+
+                                printer = reader.GetString(0);
+
+
+
+
+                                break;
+
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message.ToString());
+
+                        }
+
+
+                        return printer;
+
+                    }
+                    else
+                    {
+                        return printer;
+                    }
+
+
+
+
+
+                }
+            }
+
+
+
+        }
+
+        public string GetLastPrinter2()
+        {
+
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+
+                using (var command = new MySqlCommand())
+                {
+
+                    string printer = "";
+                    command.Connection = connection;
+
+                    command.CommandText = @"
+
+                      select Name from printer2 ORDER BY id DESC LIMIT 1
+
+                        ";
+
+                    command.CommandType = CommandType.Text;
+                    MySqlDataReader reader = command.ExecuteReader();
+                    Console.WriteLine("entre a verificar si hay filas en printer2");
+
+
+
+                    if (reader.HasRows)
+                    {
+                        try
+                        {
+                            while (reader.Read())
+                            {
+                                Console.WriteLine("entre a ver la fila del printer2");
+
+
+
+                                printer = reader.GetString(0);
+
+
+
+
+                                break;
+
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message.ToString());
+
+                        }
+
+
+                        return printer;
+
+                    }
+                    else
+                    {
+                        return printer;
+                    }
+
+
+
+
+
+                }
+            }
+
+
+
+        }
+        public string GetLastPrinter3()
+        {
+
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+
+                using (var command = new MySqlCommand())
+                {
+
+                    string printer = "";
+                    command.Connection = connection;
+
+                    command.CommandText = @"
+
+                      select Name from printer3 ORDER BY id DESC LIMIT 1
+
+                        ";
+
+                    command.CommandType = CommandType.Text;
+                    MySqlDataReader reader = command.ExecuteReader();
+                    Console.WriteLine("entre a verificar si hay filas en printer3");
+
+
+
+                    if (reader.HasRows)
+                    {
+                        try
+                        {
+                            while (reader.Read())
+                            {
+                                Console.WriteLine("entre a ver la fila del printer3");
+
+
+
+                                printer = reader.GetString(0);
+
+
+
+
+                                break;
+
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message.ToString());
+
+                        }
+
+
+                        return printer;
+
+                    }
+                    else
+                    {
+                        return printer;
+                    }
+
+
+
+
+
+                }
+            }
+
+
+
+        }
+
+
+
+        public int SelectLastNOrder() {
+
+
+            int lastno = 0;
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+
+                using (var command = new MySqlCommand())
+                {
+
+
+                    command.Connection = connection;
+
+                    command.CommandText = @"
+
+                            select numb from lastorder ORDER BY id DESC LIMIT 1;
+
+                        ";
+               
+                    command.CommandType = CommandType.Text;
+                    MySqlDataReader reader = command.ExecuteReader();
+                    Console.WriteLine("entre a conseguir el ultimo numero de orden");
+
+
+
+
+                    if (reader.HasRows)
+                    {
+
+                        try
+                        {
+
+                            while (reader.Read())
+                            {
+                                
+
+                                lastno = reader.GetInt32(0);
+
+                                break;
+
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message.ToString());
+                     
+                        }
+
+
+
+
+                    }
+
+
+                }
+            }
+
+
+            return lastno;
+
+
+        }
+
+
+
+        public void SaveLastNO(int order)
+        {
+
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+
+                using (var command = new MySqlCommand())
+                {
+
+
+                    command.Connection = connection;
+
+                    command.CommandText = @"
+
+                     UPDATE lastorder SET numb = @order WHERE id = 1
+
+                        ";
+
+                    command.Parameters.AddWithValue("@order", order);
+                    command.CommandType = CommandType.Text;
+
+
+                    MySqlDataReader reader = command.ExecuteReader();
+                    Console.WriteLine("entre a guardar last order NO");
+
+
+                }
+            }
+
+        }
+
+        public void SetPrinter1(string name) {
+
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+
+                using (var command = new MySqlCommand())
+                {
+
+
+                    command.Connection = connection;
+
+                    command.CommandText = @"
+
+                       INSERT INTO printer1(Name) VALUES(@name);
+
+                        ";
+
+                    command.Parameters.AddWithValue("@name", name);
+                    command.CommandType = CommandType.Text;
+
+
+                    MySqlDataReader reader = command.ExecuteReader();
+                    Console.WriteLine("entre a guardar la nueva impresora1");
+
+
+                }
+            }
+
+
+
+        }
+        public void SetPrinter2(string name)
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+
+                using (var command = new MySqlCommand())
+                {
+
+
+                    command.Connection = connection;
+
+                    command.CommandText = @"
+
+                       INSERT INTO printer2(Name) VALUES(@name);
+
+                        ";
+
+                    command.Parameters.AddWithValue("@name", name);
+                    command.CommandType = CommandType.Text;
+
+
+                    MySqlDataReader reader = command.ExecuteReader();
+                    Console.WriteLine("entre a guardar la nueva impresora2");
+
+
+                }
+            }
+
+
+
+        }
+        public void SetPrinter3(string name)
+        {
+
+
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+
+                using (var command = new MySqlCommand())
+                {
+
+
+                    command.Connection = connection;
+
+                    command.CommandText = @"
+
+                       INSERT INTO printer3(Name) VALUES(@name);
+
+                        ";
+
+                    command.Parameters.AddWithValue("@name", name);
+                    command.CommandType = CommandType.Text;
+
+
+                    MySqlDataReader reader = command.ExecuteReader();
+                    Console.WriteLine("entre a guardar la nueva impresora3");
+
+
+                }
+            }
+
+        }
+
+
+
+
+
+
+
 
 
 

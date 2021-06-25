@@ -10,15 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Domain;
 
 namespace GKCOMSYSTEMCHAMIBEN
 {
     public partial class Configuracion : Form
     {
         private Inicio start;
-        string nuprinter1;
-        string nuprinter2;
-        string nuprinter3;
+        
 
 
          [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -64,47 +63,29 @@ namespace GKCOMSYSTEMCHAMIBEN
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
 
-                nuprinter1 = nuprintertxt.Text;
+                 ;
+
 
 
                 try
                 {
-                    MySqlConnection mysqlCon = new MySqlConnection(connectionString);
 
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd = mysqlCon.CreateCommand();
+                    ProductModel prod = new ProductModel();
 
+                    prod.SetPrinter1(nuprintertxt.Text);
 
-                    cmd.Parameters.AddWithValue("@name", nuprinter1.ToString());
-
-
-
-                    cmd.CommandText = "INSERT INTO printer1(Name) VALUES(@name)";
-
-
-                    mysqlCon.Open();
-                    cmd.ExecuteNonQuery();
-                    mysqlCon.Close();
 
                     
                     string message2 = "Impresora guardada y seleccionada como principal";
                     string caption2 = "Exito";
                     MessageBoxButtons buttons2 = MessageBoxButtons.OK;
-                    DialogResult result2;
+                   
                     nuprintertxt.Text = "";
                     // Displays the MessageBox.
-                    result2 = MessageBox.Show(message2, caption2, buttons2, MessageBoxIcon.Information);
-                    if (result2 == System.Windows.Forms.DialogResult.OK)
-                    {
-                      
-                       
+                    MessageBox.Show(message2, caption2, buttons2, MessageBoxIcon.Information);
+                    
 
-                    }
-
-
-
-
-                    }
+                }
 
                 catch (Exception ex)
                 {
@@ -144,45 +125,27 @@ namespace GKCOMSYSTEMCHAMIBEN
 
             // Displays the MessageBox.
             result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
 
-                nuprinter2 = nuprintertxt2.Text;
+                
 
 
                 try
                 {
-                    MySqlConnection mysqlCon = new MySqlConnection(connectionString);
+                    ProductModel prod = new ProductModel();
 
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd = mysqlCon.CreateCommand();
-
-
-                    cmd.Parameters.AddWithValue("@name", nuprinter2.ToString());
-
-
-
-                    cmd.CommandText = "INSERT INTO printer2(Name) VALUES(@name)";
-
-
-                    mysqlCon.Open();
-                    cmd.ExecuteNonQuery();
-                    mysqlCon.Close();
+                    prod.SetPrinter2(nuprintertxt2.Text);
 
 
                     string message2 = "Impresora guardada y seleccionada como principal";
                     string caption2 = "Exito";
                     MessageBoxButtons buttons2 = MessageBoxButtons.OK;
-                    DialogResult result2;
+                 
                     nuprintertxt2.Text = "";
-                    // Displays the MessageBox.
-                    result2 = MessageBox.Show(message2, caption2, buttons2, MessageBoxIcon.Information);
-                    if (result2 == System.Windows.Forms.DialogResult.OK)
-                    {
-                        
-
-
-                    }
+                
+                     MessageBox.Show(message2, caption2, buttons2, MessageBoxIcon.Information);
+                   
 
 
 
@@ -211,47 +174,28 @@ namespace GKCOMSYSTEMCHAMIBEN
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
-            // Displays the MessageBox.
+           
             result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (result ==DialogResult.Yes)
             {
 
-                nuprinter3 = nuprintertxt3.Text;
+                
 
 
                 try
                 {
-                    MySqlConnection mysqlCon = new MySqlConnection(connectionString);
+                    ProductModel prod = new ProductModel();
 
-                    MySqlCommand cmd = new MySqlCommand();
-                    cmd = mysqlCon.CreateCommand();
-
-
-                    cmd.Parameters.AddWithValue("@name", nuprinter3.ToString());
-
-
-
-                    cmd.CommandText = "INSERT INTO printer3(Name) VALUES(@name)";
-
-
-                    mysqlCon.Open();
-                    cmd.ExecuteNonQuery();
-                    mysqlCon.Close();
+                    prod.SetPrinter3(nuprintertxt3.Text);
 
 
                     string message2 = "Impresora guardada y seleccionada como principal";
                     string caption2 = "Exito";
                     MessageBoxButtons buttons2 = MessageBoxButtons.OK;
-                    DialogResult result2;
                     nuprintertxt3.Text = "";
-                    // Displays the MessageBox.
-                    result2 = MessageBox.Show(message2, caption2, buttons2, MessageBoxIcon.Information);
-                    if (result2 == System.Windows.Forms.DialogResult.OK)
-                    {
-                        
+                  
+                    MessageBox.Show(message2, caption2, buttons2, MessageBoxIcon.Information);
 
-
-                    }
 
 
 

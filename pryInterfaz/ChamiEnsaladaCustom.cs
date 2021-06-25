@@ -215,7 +215,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                 object[] row = new object[] { newensalada, preciolbl.Text, unidadescmb.Text, subtotallbl.Text };
 
                 start.dgvorden2.Rows.Add(row);
-                int subtotalnuensal = Convert.ToInt16(subtotallbl.Text);
+                decimal subtotalnuensal = Convert.ToInt16(subtotallbl.Text);
 
 
 
@@ -223,9 +223,9 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                 start.subtotal += subtotalnuensal;
 
-                int sub = start.subtotal;
+                decimal sub = start.subtotal;
 
-                start.subtotaltxt2.Text = sub.ToString();
+                start.subtotaltxt2.Text = Convert.ToString(sub);
                 start.deletebtn2.Enabled = true;
 
                 this.Close();
