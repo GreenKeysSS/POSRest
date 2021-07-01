@@ -40,3 +40,17 @@ C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\obj\Debug\Domain.csproj.Co
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\obj\Debug\Domain.csproj.CopyComplete
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\obj\Debug\Domain.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\obj\Debug\Domain.pdb
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\bin\Debug\Domain.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\bin\Debug\Domain.pdb
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\bin\Debug\DataAccess.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\bin\Debug\MySql.Data.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\bin\Debug\Google.Protobuf.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\bin\Debug\Renci.SshNet.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\bin\Debug\DataAccess.pdb
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\bin\Debug\MySql.Data.xml
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\obj\Debug\Domain.csprojAssemblyReference.cache
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\obj\Debug\Domain.csproj.CopyComplete
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\obj\Debug\Domain.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\Domain\obj\Debug\Domain.pdb

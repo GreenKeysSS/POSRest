@@ -32,7 +32,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         );
 
 
-        string connectionString = @"Server=localhost;Database=chamiben;Uid=root";
+        //string connectionString = @"Server=localhost;Database=chamiben;Uid=root";
 
 
         public Configuracion(Inicio start)

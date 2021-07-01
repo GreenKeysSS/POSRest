@@ -35,3 +35,15 @@ C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\obj\Debug\DataAccess.c
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\bin\Debug\MySql.Data.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\bin\Debug\Google.Protobuf.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\bin\Debug\Renci.SshNet.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\bin\Debug\MySql.Data.xml
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\obj\Debug\DataAccess.csprojAssemblyReference.cache
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\obj\Debug\DataAccess.pdb

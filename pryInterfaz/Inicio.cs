@@ -14,6 +14,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using Domain;
 using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace GKCOMSYSTEMCHAMIBEN
 {
@@ -739,110 +740,35 @@ namespace GKCOMSYSTEMCHAMIBEN
             result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-
-
-                if (dgvlistatotal.RowCount > 0)
+                try
                 {
-                    ChamiTab.SelectedTab = Mesastab;
-                    enableradio1(false);
-                    //actualplatotxt1.Text = "";
-
-
-                }
-                else
-                {
-                    MessageBox.Show("Debe realizar algun pedido", "Datos no validos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                /*
-
-                MySqlConnection mysqlCon = new MySqlConnection(connectionString);
-
-                if (albradio.Checked == true)
-                {
-
-                    mozosname = "Alberto";
-
-                }
-                if (henkradio.Checked == true)
-                {
-
-                    mozosname = "Jenker";
-
-                }
-                if (pacradio.Checked == true)
-                {
-
-                    mozosname = "ORLANDO";
-
-                }
-                if (renanradio.Checked == true)
-                {
-
-                    mozosname = "Renan";
-
-                }
-                if (roxradio.Checked == true)
-                {
-
-                    mozosname = "Roxana";
-
-                }*/
-                /*
-               
-                    foreach (DataGridViewRow row in dgvlistatotal.Rows)
+                    if (dgvlistatotal.RowCount > 0)
                     {
-                        try
-                        {
-                            MySqlCommand cmd = new MySqlCommand();
-                            cmd = mysqlCon.CreateCommand();
-
-                            if (row.IsNewRow) continue;
-                            cmd.Parameters.AddWithValue("@Mozo", mozosname);
-                            cmd.Parameters.AddWithValue("@Mesa", mesatxt.Text);
-                            cmd.Parameters.AddWithValue("@Producto", row.Cells[0].Value);
-                            cmd.Parameters.AddWithValue("@Precio", row.Cells[1].Value);
-                            cmd.Parameters.AddWithValue("@Unidades", row.Cells[2].Value);
-                            cmd.Parameters.AddWithValue("@Subtotal", row.Cells[3].Value);
-                            
-                            cmd.Parameters.AddWithValue("@Estado", mesastate);
-
-
-                            cmd.CommandText = "INSERT INTO logsp1ben(Mozo,Mesa,Producto,Precio,Unidades,Subtotal,FechaInc,Estado) VALUES(@Mozo,@Mesa,@Producto,@Precio,@Unidades,@Subtotal,now(),@Estado)";
-
-                            mysqlCon.Open();
-                            cmd.ExecuteNonQuery();
-                            mysqlCon.Close();
-
-
-                        
+                        SaveCOMDGV(currentmesa);
+                        ChamiTab.SelectedTab = Mesastab;
 
                     }
+                    else
+                    {
+                        MessageBox.Show("Debe realizar algun pedido", "Datos no validos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                catch (Exception ex)
+                {
 
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
+                    MessageBox.Show(ex.Message);
+                }
 
-
-
-
-                    }*/
-
-                //dgvlistatotal.Columns.Clear();
+                
+                
 
 
             }
 
-
-
-            /* if (mesanum == 1)
-             {
-                 mesas[0] -=mesas[0];
-
-             }
-             */
-
         }
+
+
+       
 
 
         private void deleteordentotalbtn1_Click(object sender, EventArgs e)
@@ -856,7 +782,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
             // Displays the MessageBox.
             result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Warning);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
 
 
@@ -878,26 +804,18 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                         if (state == true)
                         {
+
                             ChamiTab.SelectedTab = Mesastab;
-
+                            DeleteOrderFiles(currentmesa);
                             guardarbtn1.Enabled = true;
-
                             dgvlistatotal.Rows.Clear();
-
-
                             mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
-
                             totaltxtmesa.Text = "";
                             mesatotal[1] -= mesatotal[1];
                             mesa1btn.Text = "";
-
                             enableradio1(true);
                             actualplatotxt1.Text = "";
-
-
-
                             ResetRadioButtons();
-
                             mozosnametxt1.Text = "Seleccione Mozo";
 
                         }
@@ -920,7 +838,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                         if (state == true)
                         {
                             ChamiTab.SelectedTab = Mesastab;
-
+                            DeleteOrderFiles(currentmesa);
                             guardarbtn1.Enabled = true;
 
                             dgvlistatotal.Rows.Clear();
@@ -956,7 +874,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                         if (state == true)
                         {
                             ChamiTab.SelectedTab = Mesastab;
-
+                            DeleteOrderFiles(currentmesa);
                             guardarbtn1.Enabled = true;
 
                             dgvlistatotal.Rows.Clear();
@@ -993,7 +911,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                         if (state == true)
                         {
                             ChamiTab.SelectedTab = Mesastab;
-
+                            DeleteOrderFiles(currentmesa);
                             guardarbtn1.Enabled = true;
 
                             dgvlistatotal.Rows.Clear();
@@ -1029,7 +947,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                         if (state == true)
                         {
                             ChamiTab.SelectedTab = Mesastab;
-
+                            DeleteOrderFiles(currentmesa);
                             guardarbtn1.Enabled = true;
 
                             dgvlistatotal.Rows.Clear();
@@ -1065,7 +983,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                         if (state == true)
                         {
                             ChamiTab.SelectedTab = Mesastab;
-
+                            DeleteOrderFiles(currentmesa);
                             guardarbtn1.Enabled = true;
 
                             dgvlistatotal.Rows.Clear();
@@ -1096,7 +1014,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                         if (state == true)
                         {
                             ChamiTab.SelectedTab = Mesastab;
-
+                            DeleteOrderFiles(currentmesa);
                             guardarbtn1.Enabled = true;
 
                             dgvlistatotal.Rows.Clear();
@@ -1127,7 +1045,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                         if (state == true)
                         {
                             ChamiTab.SelectedTab = Mesastab;
-
+                            DeleteOrderFiles(currentmesa);
                             guardarbtn1.Enabled = true;
 
                             dgvlistatotal.Rows.Clear();
@@ -1659,28 +1577,32 @@ namespace GKCOMSYSTEMCHAMIBEN
                 actualplatotxt1.Text = "";
 
 
-
-
-
-
             }
             else
             {
+
+
+
                 DataGridViewRow row1 = dgvlistatotal.CurrentRow;
 
 
-                actualplatotxt1.Text = row1.Cells[0].Value.ToString();
+                actualplatotxt1.Text = Convert.ToString( row1.Cells[0].Value);
 
 
-                if (row1.Cells[0].Value.ToString().Contains("&"))
+                if (Convert.ToString( row1.Cells[0].Value).Contains("&"))
                 {
 
                     tipoplato = "cocina";
 
                 }
                 else
-
+                {
                     tipoplato = "bar";
+
+
+                }
+
+                    
 
 
 
@@ -3221,12 +3143,18 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         private void mesa1btn_Click(object sender, EventArgs e)
         {
+
+
+
+
+
             currentmesa = 1;
             namemesatxt.Text = "Mesa            1";
+            RestoreSell(1);
             ChamiTab.SelectedTab = mesacom;
+
+
             
-
-
 
 
 
@@ -3783,8 +3711,228 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             mozosnametxt1.Text = "ELMER";
         }
+        private void SaveCOMDGV(int mesa)
+        {
 
-        
+
+            DataTable dt = new DataTable();
+
+
+            dt.Columns.Add("Prod.", typeof(string));
+            dt.Columns.Add("Prec.", typeof(string));
+            dt.Columns.Add("Uds.", typeof(string));
+            dt.Columns.Add("Sub./Pr.", typeof(string));
+            dt.Columns.Add("Ord", typeof(string));
+            dt.Columns.Add("Tipo", typeof(string));
+            dt.Columns.Add("Raz.Elim.", typeof(string));
+
+            foreach (DataGridViewRow rowGrid in dgvlistatotal.Rows)
+            {
+                DataRow row = dt.NewRow();
+
+                row["Prod."] = Convert.ToString(rowGrid.Cells[0].Value);
+                row["Prec."] = Convert.ToString(rowGrid.Cells[1].Value);
+                row["Uds."] = Convert.ToString(rowGrid.Cells[2].Value); 
+                 row["Sub./Pr."] = Convert.ToString(rowGrid.Cells[3].Value);
+                row["Ord"] = Convert.ToString(rowGrid.Cells[4].Value);
+                row["Tipo"] = Convert.ToString(rowGrid.Cells[5].Value);
+                row["Raz.Elim."] = Convert.ToString(rowGrid.Cells[6].Value);
+                
+
+                dt.Rows.Add(row);
+            }
+
+            string JSONDataTable;
+            JSONDataTable = JsonConvert.SerializeObject(dt);
+
+
+            WriteJSONToFile(JSONDataTable, "Mesa_" + mesa + ".json");
+
+        }
+        private void SaveMozoData(int mesa)
+        {
+
+            DataTable dt1 = new DataTable();
+
+            dt1.Columns.Add("Mozo", typeof(string));
+
+
+            DataRow row1 = dt1.NewRow();
+
+            row1["Mozo"] = GetMozosName() ;
+
+            
+
+            dt1.Rows.Add(row1);
+
+            string JSONClientData;
+            JSONClientData = JsonConvert.SerializeObject(dt1);
+
+            WriteJSONToFile(JSONClientData, "Mesa_" + mesa + "_extra.json");
+
+
+        }
+        private void WriteJSONToFile(string data, string filename)
+        {
+
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"\\POSRestFiles";
+
+            DirectoryInfo di = Directory.CreateDirectory(path);
+
+            File.WriteAllText(path + "\\" + filename, data);
+
+        }
+        private void DeleteOrderFiles(int mesa)
+        {
+
+
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\POSRestFiles\\Mesa_"+mesa+".json";
+            string path1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\POSRestFiles\\Mesa_" + mesa + "_extra.json";
+
+            if (File.Exists(path))
+            {
+                try
+                {
+                    File.Delete(path);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+            if (File.Exists(path1))
+            {
+                try
+                {
+                    File.Delete(path1);
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show(ex.Message);
+                }
+
+            }
+
+
+        }
+        private void SelectMozoFromSavedCOMS(string mozo)
+        {
+
+            if (mozo == "ALBERTO")
+            {
+
+                albradio.Checked = true;
+
+            }
+            if (mozosname == "JENKER")
+            {
+                jenkradio.Checked = true;
+
+            }
+            if (mozosname == "ORLANDO")
+            {
+                
+                pacradio.Checked = true;
+
+
+            }
+            if (mozosname == "RENAN")
+            {
+                
+
+               renanradio.Checked = true;
+
+
+            }
+            if (mozosname == "ROXANA")
+            {
+                roxradio.Checked = true;
+              
+
+
+            }
+            if (mozosname == "ELMER")
+            {
+                elmradio.Checked = true;
+
+
+            }
+            if (mozosname == "INVITADO 1")
+            {
+                
+                inv1radio.Checked = true;
+
+
+            }
+            if (mozosname == "INVITADO 2")
+            {
+                inv2radio.Checked = true;
+               
+
+
+            }
+
+           
+
+
+        }
+        private void RestoreSell(int mesa)
+        {
+      
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\POSRestFiles\\Mesa_" + mesa + ".json";
+                Console.WriteLine(path);
+                string path1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\POSRestFiles\\Mesa_" + mesa + "_extra.json";
+                Console.WriteLine(path);
+
+            string jsonReadResult1;
+            string jsonReadResult;
+
+            if (File.Exists(path1))
+            {
+                jsonReadResult1 = File.ReadAllText(path);
+
+
+                DataTable dt = (DataTable)JsonConvert.DeserializeObject(jsonReadResult1, typeof(DataTable));
+
+                 string mozo = Convert.ToString(dt.Rows[0][0]);
+
+                 SelectMozoFromSavedCOMS(mozo);
+
+
+            }
+
+            if (File.Exists(path))
+            {
+
+                try
+                {
+                    jsonReadResult = File.ReadAllText(path);
+                    DataTable dt = (DataTable)JsonConvert.DeserializeObject(jsonReadResult, typeof(DataTable));
+
+
+
+                    dgvlistatotal.Columns.Clear();
+
+                    dgvlistatotal.DataSource = dt;
+
+                    dgvlistatotal.Columns[4].Visible = false;
+                    dgvlistatotal.Columns[5].Visible = false;
+                    dgvlistatotal.Columns[6].Visible = false;
+                    UpdateFontListaTotal();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+               
+
+            }
+            
+
+        }
     }
 }
 
