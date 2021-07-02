@@ -75,7 +75,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="XanderUI">
-      <HintPath>C:\Users\USER\Documents\XanderUI.dll</HintPath>
+      <HintPath>..\libs\XanderUI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

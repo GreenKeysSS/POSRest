@@ -49,7 +49,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         int subtotalprod = 0;
         int currentmesa = 0;
-        decimal[] mesatotal = new decimal[35];
+       
         public string printer1;
         public string printer2;
         public string printer3;
@@ -64,7 +64,8 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
 
             InitializeComponent();
-            MysqldStateResolve();
+
+            
 
            
             //this.FormBorderStyle = FormBorderStyle.None;
@@ -77,14 +78,14 @@ namespace GKCOMSYSTEMCHAMIBEN
             GridFillPostres();
 
 
-            unabledeletebtn();
+           
             deletebuttonstart();
 
 
 
             combosstart();
             activealltables();
-            UpdateFontListaTotal();
+        
 
 
 
@@ -99,9 +100,19 @@ namespace GKCOMSYSTEMCHAMIBEN
 
             SelectLastNOrder();
             DisableSafeMode();
+            StartTimers();
+
+
+        }
+
+
+        private void StartTimers() {
+
+            timer1.Start();
 
         }
         private void DisableSafeMode() {
+
 
             ProductModel prod = new ProductModel();
             prod.DisableSafeMode();
@@ -109,7 +120,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         }
 
-        private void MysqldStateResolve() {
+        private async Task MysqldStateResolve() {
 
             
             Process[] _proceses = null;
@@ -122,9 +133,12 @@ namespace GKCOMSYSTEMCHAMIBEN
             else
             {
                 try
-                { 
-
-                    Process exeProcess = Process.Start(@"C:\xampp\mysql\bin\mysqld.exe");
+                {
+                    await Task.Run(() =>
+                    {
+                        Process exeProcess = Process.Start(@"C:\xampp\mysql\bin\mysqld.exe");
+                    });
+                   
                    
                     
 
@@ -358,7 +372,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     enableradio1(true);
 
-                    mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
+                    
 
 
                     guardarbtn1.Enabled = true;
@@ -400,10 +414,10 @@ namespace GKCOMSYSTEMCHAMIBEN
                     totaltxtmesa.Text = "";
 
                     mesa1btn.Text = "";
-                    mesatotal[1] -= mesatotal[1];
+                   
                     ResetRadioButtons();
                     mozosnametxt1.Text = "Seleccione Mozo";
-                    actualplatotxt1.Text = "";
+                    
                     ChamiTab.SelectedTab = Mesastab;
 
 
@@ -533,8 +547,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                             string a = Convert.ToString(selectedRow.Cells[3].Value);
 
 
-                            mesatotal[1] -= Convert.ToInt16(a);
-                            totaltxtmesa.Text = mesatotal[1].ToString();
+                            
 
                             dgvlistatotal.Rows.Add(row1.Cells[0].Value.ToString() + " -- ELIMINADO", row1.Cells[1].Value.ToString(), row1.Cells[2].Value.ToString(), row1.Cells[3].Value.ToString(), row1.Cells[4].Value.ToString(), row1.Cells[5].Value.ToString());
 
@@ -745,6 +758,8 @@ namespace GKCOMSYSTEMCHAMIBEN
                     if (dgvlistatotal.RowCount > 0)
                     {
                         SaveCOMDGV(currentmesa);
+                        SaveMozoData(currentmesa);
+                        dgvlistatotal.Rows.Clear();
                         ChamiTab.SelectedTab = Mesastab;
 
                     }
@@ -809,12 +824,12 @@ namespace GKCOMSYSTEMCHAMIBEN
                             DeleteOrderFiles(currentmesa);
                             guardarbtn1.Enabled = true;
                             dgvlistatotal.Rows.Clear();
-                            mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
+                            
                             totaltxtmesa.Text = "";
-                            mesatotal[1] -= mesatotal[1];
+                            
                             mesa1btn.Text = "";
                             enableradio1(true);
-                            actualplatotxt1.Text = "";
+                            
                             ResetRadioButtons();
                             mozosnametxt1.Text = "Seleccione Mozo";
 
@@ -844,14 +859,14 @@ namespace GKCOMSYSTEMCHAMIBEN
                             dgvlistatotal.Rows.Clear();
 
 
-                            mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
+                            
 
                             totaltxtmesa.Text = "";
-                            mesatotal[1] -= mesatotal[1];
+                            
                             mesa1btn.Text = "";
 
                             enableradio1(true);
-                            actualplatotxt1.Text = "";
+                            
 
 
 
@@ -880,14 +895,14 @@ namespace GKCOMSYSTEMCHAMIBEN
                             dgvlistatotal.Rows.Clear();
 
 
-                            mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
+                            
 
                             totaltxtmesa.Text = "";
-                            mesatotal[1] -= mesatotal[1];
+                          
                             mesa1btn.Text = "";
 
                             enableradio1(true);
-                            actualplatotxt1.Text = "";
+                            
 
 
 
@@ -917,14 +932,14 @@ namespace GKCOMSYSTEMCHAMIBEN
                             dgvlistatotal.Rows.Clear();
 
 
-                            mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
+                            
 
                             totaltxtmesa.Text = "";
-                            mesatotal[1] -= mesatotal[1];
+                         
                             mesa1btn.Text = "";
 
                             enableradio1(true);
-                            actualplatotxt1.Text = "";
+                            
 
 
 
@@ -953,14 +968,14 @@ namespace GKCOMSYSTEMCHAMIBEN
                             dgvlistatotal.Rows.Clear();
 
 
-                            mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
+                            
 
                             totaltxtmesa.Text = "";
-                            mesatotal[1] -= mesatotal[1];
+                           
                             mesa1btn.Text = "";
 
                             enableradio1(true);
-                            actualplatotxt1.Text = "";
+                            
 
 
 
@@ -989,13 +1004,14 @@ namespace GKCOMSYSTEMCHAMIBEN
                             dgvlistatotal.Rows.Clear();
 
 
-                            mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
+                            
 
                             mozosnametxt1.Text = "";
                             totaltxtmesa.Text = "";
-                            mesatotal[1] -= mesatotal[1]; mesa1btn.Text = "";
+                          
+                            mesa1btn.Text = "";
 
-                            enableradio1(true); actualplatotxt1.Text = "";
+                            enableradio1(true); 
                             ResetRadioButtons();
                             mozosnametxt1.Text = "Selecione Mozo";
 
@@ -1020,13 +1036,13 @@ namespace GKCOMSYSTEMCHAMIBEN
                             dgvlistatotal.Rows.Clear();
 
 
-                            mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
+                            
 
                             mozosnametxt1.Text = "";
                             totaltxtmesa.Text = "";
-                            mesatotal[1] -= mesatotal[1]; mesa1btn.Text = "";
+                            mesa1btn.Text = "";
 
-                            enableradio1(true); actualplatotxt1.Text = "";
+                            enableradio1(true); 
                             ResetRadioButtons();
                             mozosnametxt1.Text = "Selecione Mozo";
 
@@ -1051,13 +1067,13 @@ namespace GKCOMSYSTEMCHAMIBEN
                             dgvlistatotal.Rows.Clear();
 
 
-                            mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
+                            
 
                             mozosnametxt1.Text = "";
                             totaltxtmesa.Text = "";
-                            mesatotal[1] -= mesatotal[1]; mesa1btn.Text = "";
+                             mesa1btn.Text = "";
 
-                            enableradio1(true); actualplatotxt1.Text = "";
+                            enableradio1(true); 
                             ResetRadioButtons();
                             mozosnametxt1.Text = "Selecione Mozo";
 
@@ -1082,14 +1098,14 @@ namespace GKCOMSYSTEMCHAMIBEN
                     dgvlistatotal.Rows.Clear();
 
 
-                    mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
+                    
 
                     totaltxtmesa.Text = "";
-                    mesatotal[1] -= mesatotal[1];
+                  
                     mesa1btn.Text = "";
 
                     enableradio1(true);
-                    actualplatotxt1.Text = "";
+                   
 
 
 
@@ -1256,8 +1272,11 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
         }
-        private void addcolcomanda()
+        private async  void addcolcomanda()
         {
+            await MysqldStateResolve();
+
+
 
             dgvorden.Columns.Add("0", "Prod.");
             dgvorden.Columns.Add("1", "Prec.");
@@ -1280,19 +1299,6 @@ namespace GKCOMSYSTEMCHAMIBEN
             dgvorden4.Columns.Add("2", "Uds.");
             dgvorden4.Columns.Add("3", "Sub./Pr.");
 
-
-
-            dgvlistatotal.Columns.Add("0", "Prod.");
-            dgvlistatotal.Columns.Add("1", "Prec.");
-            dgvlistatotal.Columns.Add("2", "Uds.");
-            dgvlistatotal.Columns.Add("3", "Sub./Pr.");
-            dgvlistatotal.Columns.Add("4", "Ord");
-            dgvlistatotal.Columns.Add("5", "Tipo");
-            dgvlistatotal.Columns.Add("6", "Raz.Elim.");
-            dgvlistatotal.Columns[4].Visible = false;
-            dgvlistatotal.Columns[5].Visible = false;
-            dgvlistatotal.Columns[6].Visible = false;
-            
 
         }
 
@@ -1411,10 +1417,10 @@ namespace GKCOMSYSTEMCHAMIBEN
             postredgv.Columns[0].Visible = false;
         }
        
-        private void activealltables()
+        private  void activealltables()
         {
-
-            mesa1btn.Normalcolor = Color.FromArgb(46, 139, 87);
+            
+            
             mesa2btn.Normalcolor = Color.FromArgb(46, 139, 87);
             mesa3btn.Normalcolor = Color.FromArgb(46, 139, 87);
             mesa4btn.Normalcolor = Color.FromArgb(46, 139, 87);
@@ -1468,12 +1474,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-        private void UpdateFontListaTotal()
-        {
-            DataGridViewColumn columnlistatotal1 = dgvlistatotal.Columns[0];
-            columnlistatotal1.Width = 360;
-
-        }
+       
         private void UpdateFontListaBebida()
         {
             DataGridViewColumn columnlista1 = bebidasdgv.Columns[1];
@@ -1525,41 +1526,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             inv2radio.Enabled = active;
         }
        
-        private void unabledeletebtn()
-        {
-
-            if (dgvorden.Rows.Count == 0)
-            {
-
-                deletebtn.Enabled = false;
-
-
-            }
-            if (dgvorden2.Rows.Count == 0)
-            {
-
-                deletebtn2.Enabled = false;
-
-
-            }
-            if (dgvorden3.Rows.Count == 0)
-            {
-
-                deletebtn3.Enabled = false;
-
-
-            }
-            if (dgvorden4.Rows.Count == 0)
-            {
-
-                deletebtn4.Enabled = false;
-
-
-            }
-
-
-
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -1572,24 +1539,14 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         private void dgvlistatotal1_SelectionChanged(object sender, EventArgs e)
         {
-            if (dgvlistatotal.RowCount == 0)
-            {
-                actualplatotxt1.Text = "";
-
-
-            }
-            else
+            
+            
+            
+            foreach (DataGridViewRow row1 in dgvlistatotal.SelectedRows)
             {
 
 
-
-                DataGridViewRow row1 = dgvlistatotal.CurrentRow;
-
-
-                actualplatotxt1.Text = Convert.ToString( row1.Cells[0].Value);
-
-
-                if (Convert.ToString( row1.Cells[0].Value).Contains("&"))
+                if (Convert.ToString(row1.Cells[0].Value).Contains("&"))
                 {
 
                     tipoplato = "cocina";
@@ -1601,15 +1558,10 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
                 }
-
-                    
-
-
-
-
-
-
             }
+            
+                
+               
 
 
 
@@ -1629,7 +1581,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
             subtotaltxt.Text = subtotal.ToString();
 
-            unabledeletebtn();
+            
 
 
         }
@@ -1901,11 +1853,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
 
             DataGridViewRow row1 = bebidasdgv.CurrentRow;
-            DataGridViewRow row2 = dgvorden.CurrentRow;
-
-
-
-            //MySqlConnection mysqlCon = new MySqlConnection(connectionString);
+           
 
 
             string message = "¿Deseas imprimir la orden?";
@@ -1921,48 +1869,44 @@ namespace GKCOMSYSTEMCHAMIBEN
                 if (dgvorden.RowCount != 0)
                 {
 
-
-
-
-
                     order++;
-
                     SaveLastOrder();
 
+                 
+              
+                    mozosnametxt1.Text = mozosname;
+                    mesa1btn.Text = mozosname;
+                    enableradio1(false);
 
 
+                    foreach (DataGridViewRow row3 in dgvorden.Rows){
 
-                    if (currentmesa == 1){
-                        mesa1btn.Normalcolor = Color.FromArgb(192, 32, 22);
-                        mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname;
-                        enableradio1(false);
+                        if (row3.IsNewRow) continue;
 
-                        foreach (DataGridViewRow row3 in dgvorden.Rows){
-                            if (row3.IsNewRow) continue;
-                            dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "BEBIDAS"); } }
+                        dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(),
+                        row3.Cells[1].Value.ToString(),
+                        row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(),
+                        order.ToString(), "BEBIDAS");
+                    }
+                    
 
                   
 
                     PrintOrder(dgvorden, coment1txt.Text, printer1);
 
-                    
-
-                    //////////////////////////////////
-                    /*//*/
-                    dgvorden.Rows.Clear();//////
-                                          //////////////////////////////////
+                  
+                    dgvorden.Rows.Clear();
 
 
 
 
-                    if (currentmesa == 1)
-                    { mesatotal[1] += Convert.ToDecimal(subtotaltxt.Text);
-                        totaltxtmesa.Text = Convert.ToString(mesatotal[1]);
-                        ChamiTab.SelectedTab = mesacom;
-                        /*if (dgvlistatotal.SelectedCells.Count != 0)
-                        { deletebtntotal.Enabled = true; }*/
 
-                    }
+
+                    ChamiTab.SelectedTab = mesacom;
+                    /*if (dgvlistatotal.SelectedCells.Count != 0)
+                    { deletebtntotal.Enabled = true; }*/
+
+                  
 
 
 
@@ -1988,6 +1932,14 @@ namespace GKCOMSYSTEMCHAMIBEN
 
             }
         }
+
+
+
+
+
+
+
+
         public void PrintOrder(DataGridView dgv, string comment, string printer) {
 
             CrearTicket ticket = new CrearTicket();
@@ -2082,7 +2034,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-                if (currentmesa == 1) { ChamiTab.SelectedTab = mesacom; }
+                ChamiTab.SelectedTab = mesacom; 
                
 
                 coment1txt.Text = "";
@@ -2364,7 +2316,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                     PrintOrder(dgvorden2,coment2txt.Text,printer2);
 
 
-                    if (currentmesa == 1) { mesa1btn.Normalcolor = Color.FromArgb(192, 32, 22); mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden2.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "ENTRADAS"); } }
+                    if (currentmesa == 1) {  mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden2.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "ENTRADAS"); } }
                     //////////////////////////////////
                     /*//*/
                     dgvorden2.Rows.Clear();//////
@@ -2372,7 +2324,10 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-                    if (currentmesa == 1) { mesatotal[1] += Convert.ToInt16(subtotaltxt2.Text); totaltxtmesa.Text = mesatotal[1].ToString(); ChamiTab.SelectedTab = mesacom; if (dgvlistatotal.SelectedCells.Count != 0) { deletebtntotal.Enabled = true; } }
+                    if (currentmesa == 1) {
+                       
+                        ChamiTab.SelectedTab = mesacom;
+                        if (dgvlistatotal.SelectedCells.Count != 0) { deletebtntotal.Enabled = true; } }
                    
                     //limpiar cuadro subtotal, subtotalproductocadauno 0 y subtotalcuadro 0
                     subtotal -= subtotal;
@@ -2413,7 +2368,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                 dgvorden2.Rows.Clear();
 
-                if (currentmesa == 1) { ChamiTab.SelectedTab = mesacom; }
+                ChamiTab.SelectedTab = mesacom; 
                 
                 coment2txt.Text = "";
                 svcmb1.SelectedIndex = 0;
@@ -2860,7 +2815,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
                     PrintOrder(dgvorden3, coment3txt.Text, printer2);
-                    if (currentmesa == 1) { mesa1btn.Normalcolor = Color.FromArgb(192, 32, 22); mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden3.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "PLATOS FONDO"); } }
+                    if (currentmesa == 1) {  mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden3.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "PLATOS FONDO"); } }
                     //////////////////////////////////
                     /*//*/
                     dgvorden3.Rows.Clear();//////
@@ -2868,7 +2823,10 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-                    if (currentmesa == 1) { mesatotal[1] += Convert.ToInt16(subtotaltxt3.Text); totaltxtmesa.Text = mesatotal[1].ToString(); ChamiTab.SelectedTab = mesacom; if (dgvlistatotal.SelectedCells.Count != 0) { deletebtntotal.Enabled = true; } }
+                    if (currentmesa == 1) {
+                   
+                        ChamiTab.SelectedTab = mesacom;
+                        if (dgvlistatotal.SelectedCells.Count != 0) { deletebtntotal.Enabled = true; } }
                    
 
                     //limpiar cuadro subtotal, subtotalproductocadauno 0 y subtotalcuadro 0
@@ -2906,7 +2864,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
                 dgvorden3.Rows.Clear();
-                if (currentmesa == 1) { ChamiTab.SelectedTab = mesacom; }
+                ChamiTab.SelectedTab = mesacom; 
                 
                 coment3txt.Text = "";
                 svcmb3.SelectedIndex = 0;
@@ -3075,7 +3033,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                     PrintOrder(dgvorden4, coment4txt.Text, printer1);
 
 
-                    if (currentmesa == 1) { mesa1btn.Normalcolor = Color.FromArgb(192, 32, 22); mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden4.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "POSTRES"); } }
+                    if (currentmesa == 1) {  mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden4.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "POSTRES"); } }
                    
                     //////////////////////////////////
                     /*//*/
@@ -3084,7 +3042,9 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-                    if (currentmesa == 1) { mesatotal[1] += Convert.ToInt16(subtotaltxt4.Text); totaltxtmesa.Text = mesatotal[1].ToString(); ChamiTab.SelectedTab = mesacom; if (dgvlistatotal.SelectedCells.Count != 0) { deletebtntotal.Enabled = true; } }
+                    if (currentmesa == 1) {
+                     
+                        ChamiTab.SelectedTab = mesacom; if (dgvlistatotal.SelectedCells.Count != 0) { deletebtntotal.Enabled = true; } }
                
 
 
@@ -3124,7 +3084,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
                 dgvorden4.Rows.Clear();
-                if (currentmesa == 1) { ChamiTab.SelectedTab = mesacom; }
+                ChamiTab.SelectedTab = mesacom; 
                
 
                 coment4txt.Text = "";
@@ -3151,6 +3111,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             currentmesa = 1;
             namemesatxt.Text = "Mesa            1";
             RestoreSell(1);
+
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3164,7 +3125,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 2;
             namemesatxt.Text = "Mesa            2";
-
+            RestoreSell(2);
             ChamiTab.SelectedTab = mesacom;
            
 
@@ -3175,6 +3136,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 3;
             namemesatxt.Text = "Mesa            3";
+            RestoreSell(3);
             ChamiTab.SelectedTab = mesacom;
             
 
@@ -3185,6 +3147,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 4;
             namemesatxt.Text = "Mesa            4";
+            RestoreSell(4);
             ChamiTab.SelectedTab = mesacom;
             
           
@@ -3194,6 +3157,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 5;
             namemesatxt.Text = "Mesa            5";
+            RestoreSell(5);
             ChamiTab.SelectedTab = mesacom;
             
           
@@ -3203,6 +3167,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 6;
             namemesatxt.Text = "Mesa            6";
+            RestoreSell(6);
             ChamiTab.SelectedTab = mesacom;
             
            
@@ -3212,6 +3177,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 7;
             namemesatxt.Text = "Mesa            7";
+            RestoreSell(7);
             ChamiTab.SelectedTab = mesacom;
             
           
@@ -3221,6 +3187,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 8;
             namemesatxt.Text = "Mesa            8";
+            RestoreSell(8);
             ChamiTab.SelectedTab = mesacom;
             
            
@@ -3230,6 +3197,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 9;
             namemesatxt.Text = "Mesa            9";
+            RestoreSell(9);
             ChamiTab.SelectedTab = mesacom;
             
         }
@@ -3238,6 +3206,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 10;
             namemesatxt.Text = "Mesa            10";
+            RestoreSell(10);
             ChamiTab.SelectedTab = mesacom;
             
           
@@ -3247,6 +3216,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 11;
             namemesatxt.Text = "Mesa            11";
+            RestoreSell(11);
             ChamiTab.SelectedTab = mesacom;
             
            
@@ -3256,6 +3226,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 12;
             namemesatxt.Text = "Mesa            12";
+            RestoreSell(12);
             ChamiTab.SelectedTab = mesacom;
             
            
@@ -3265,6 +3236,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 13;
             namemesatxt.Text = "Mesa            13";
+            RestoreSell(13);
             ChamiTab.SelectedTab = mesacom;
             
             
@@ -3274,6 +3246,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 14;
             namemesatxt.Text = "Mesa            14";
+            RestoreSell(14);
             ChamiTab.SelectedTab = mesacom;
            
             
@@ -3283,6 +3256,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 15;
             namemesatxt.Text = "Mesa            15";
+            RestoreSell(15);
             ChamiTab.SelectedTab = mesacom;
             
            
@@ -3292,6 +3266,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 16;
             namemesatxt.Text = "Mesa            16";
+            RestoreSell(16);
             ChamiTab.SelectedTab = mesacom;
             
 
@@ -3301,6 +3276,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 17;
             namemesatxt.Text = "Mesa            17";
+            RestoreSell(17);
             ChamiTab.SelectedTab = mesacom;
             
            
@@ -3310,6 +3286,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 18;
             namemesatxt.Text = "Mesa            18";
+            RestoreSell(18);
             ChamiTab.SelectedTab = mesacom;
            
             
@@ -3543,6 +3520,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 19;
             namemesatxt.Text = "Mesa            1(2P)";
+            RestoreSell(19);
             ChamiTab.SelectedTab = mesacom;
 
          
@@ -3554,6 +3532,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 20;
             namemesatxt.Text = "Mesa            2(2P)";
+            RestoreSell(20);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3565,6 +3544,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 21;
             namemesatxt.Text = "Mesa            3(2P)";
+            RestoreSell(21);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3576,6 +3556,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 22;
             namemesatxt.Text = "Mesa            4(2P)";
+            RestoreSell(22);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3587,6 +3568,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 23;
             namemesatxt.Text = "Mesa            5(2P)";
+            RestoreSell(23);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3596,6 +3578,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 24;
             namemesatxt.Text = "Mesa            6(2P)";
+            RestoreSell(24);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3607,6 +3590,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 25;
             namemesatxt.Text = "Mesa            7(2P)";
+            RestoreSell(25);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3617,6 +3601,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 26;
             namemesatxt.Text = "Mesa            8(2P)";
+            RestoreSell(26);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3627,6 +3612,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 27;
             namemesatxt.Text = "Mesa            9(2P)";
+            RestoreSell(27);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3636,6 +3622,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 28;
             namemesatxt.Text = "Mesa            10(2P)";
+            RestoreSell(28);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3645,6 +3632,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 29;
             namemesatxt.Text = "Mesa            11(2P)";
+            RestoreSell(29);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3656,6 +3644,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 30;
             namemesatxt.Text = "Mesa            12(2P)";
+            RestoreSell(30);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3666,6 +3655,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 31;
             namemesatxt.Text = "Mesa            13(2P)";
+            RestoreSell(31);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3677,6 +3667,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 32;
             namemesatxt.Text = "Mesa            14(2P)";
+            RestoreSell(32);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3688,6 +3679,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
             currentmesa = 33;
             namemesatxt.Text = "Mesa            15(2P)";
+            RestoreSell(33);
             ChamiTab.SelectedTab = mesacom;
 
 
@@ -3885,23 +3877,29 @@ namespace GKCOMSYSTEMCHAMIBEN
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\POSRestFiles\\Mesa_" + mesa + ".json";
                 Console.WriteLine(path);
                 string path1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\POSRestFiles\\Mesa_" + mesa + "_extra.json";
-                Console.WriteLine(path);
+                Console.WriteLine(path1);
 
             string jsonReadResult1;
             string jsonReadResult;
 
             if (File.Exists(path1))
             {
-                jsonReadResult1 = File.ReadAllText(path);
+                jsonReadResult1 = File.ReadAllText(path1);
 
 
                 DataTable dt = (DataTable)JsonConvert.DeserializeObject(jsonReadResult1, typeof(DataTable));
 
                  string mozo = Convert.ToString(dt.Rows[0][0]);
 
+                Console.WriteLine(mozo); 
                  SelectMozoFromSavedCOMS(mozo);
+                enableradio1(false);
 
-
+            }
+            else
+            {
+                enableradio1(true);
+                ResetRadioButtons();
             }
 
             if (File.Exists(path))
@@ -3914,14 +3912,11 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-                    dgvlistatotal.Columns.Clear();
-
-                    dgvlistatotal.DataSource = dt;
-
-                    dgvlistatotal.Columns[4].Visible = false;
-                    dgvlistatotal.Columns[5].Visible = false;
-                    dgvlistatotal.Columns[6].Visible = false;
-                    UpdateFontListaTotal();
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        dgvlistatotal.Rows.Add(row[0], row[1], row[2], row[3], row[4], row[5], row[6]);
+                    }
+                    
                 }
                 catch (Exception ex)
                 {
@@ -3931,6 +3926,170 @@ namespace GKCOMSYSTEMCHAMIBEN
 
             }
             
+
+        }
+        private void CalcComandaAndUpdate()
+        {
+            if (dgvlistatotal.Rows.Count > 0)
+            {
+                decimal sub = 0;
+
+
+
+                try
+                {
+
+
+                    foreach (DataGridViewRow row in dgvlistatotal.Rows)
+                    {
+
+                        sub = sub + Convert.ToDecimal(row.Cells[3].Value);
+
+                    }
+                    foreach (DataGridViewRow row1 in dgvlistatotal.SelectedRows)
+                    {
+                        actualplatotxt1.Text = Convert.ToString(row1.Cells[0].Value);
+
+                    }
+                    
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+                }
+
+                totaltxtmesa.Text = Convert.ToString(sub);
+
+
+
+
+
+            }
+            else
+            {
+
+                actualplatotxt1.Text = "";
+                totaltxtmesa.Text = "0";
+
+            }
+        }
+        private void CheckMesaIfDataExist()
+        {
+            for (int i = 1; i <= 39; i++)
+            {
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\POSRestFiles\\Mesa_" + i + ".json";
+                string path1 = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\POSRestFiles\\Mesa_" + i + "_extra.json";
+
+                string mozo="";
+
+                
+                
+
+                if (File.Exists(path))
+                {
+
+                    if (File.Exists(path1))
+                    {
+
+
+                        string jsonReadResult1;
+
+                        jsonReadResult1 = File.ReadAllText(path1);
+
+
+                        DataTable dt = (DataTable)JsonConvert.DeserializeObject(jsonReadResult1, typeof(DataTable));
+
+                        mozo = Convert.ToString(dt.Rows[0][0]);
+
+
+
+
+                    }
+
+
+                    ChangeColorMesaBTN(i, Color.FromArgb(192, 32, 22),mozo);
+
+
+
+
+
+                }
+                else
+                {
+                  
+                    ChangeColorMesaBTN(i, Color.FromArgb(46, 139, 87), mozo);
+                }
+
+
+            }
+
+        }
+        private void ChangeColorMesaBTN(int mesa,Color color,string mozo) {
+
+            if (mesa == 1) { mesa1btn.Normalcolor = color;   mesa1btn.Text = mozo; }
+            if (mesa == 12) { mesa12btn.Normalcolor = color; mesa12btn.Text = mozo; }
+            if (mesa == 23) { mesa23btn.Normalcolor = color; mesa23btn.Text = mozo; }
+            if (mesa == 2) { mesa2btn.Normalcolor = color;   mesa2btn.Text = mozo; }
+            if (mesa == 13) { mesa13btn.Normalcolor = color; mesa13btn.Text = mozo; }
+            if (mesa == 24) { mesa24btn.Normalcolor = color; mesa24btn.Text = mozo; }
+            if (mesa == 3) { mesa3btn.Normalcolor = color;   mesa3btn.Text = mozo; }
+            if (mesa == 14) { mesa14btn.Normalcolor = color; mesa14btn.Text = mozo; }
+            if (mesa == 25) { mesa25btn.Normalcolor = color; mesa25btn.Text = mozo; }
+            if (mesa == 4) { mesa4btn.Normalcolor = color;   mesa4btn.Text = mozo; }
+            if (mesa == 15) { mesa15btn.Normalcolor = color; mesa15btn.Text = mozo; }
+            if (mesa == 26) { mesa26btn.Normalcolor = color; mesa26btn.Text = mozo; }
+            if (mesa == 5) { mesa5btn.Normalcolor = color;   mesa5btn.Text = mozo; }
+            if (mesa == 16) { mesa16btn.Normalcolor = color; mesa16btn.Text = mozo; }
+            if (mesa == 27) { mesa27btn.Normalcolor = color; mesa27btn.Text = mozo; }
+            if (mesa == 6) { mesa6btn.Normalcolor = color;   mesa6btn.Text = mozo; }
+            if (mesa == 17) { mesa17btn.Normalcolor = color; mesa17btn.Text = mozo; }
+            if (mesa == 28) { mesa28btn.Normalcolor = color; mesa28btn.Text = mozo; }
+            if (mesa == 7) { mesa7btn.Normalcolor = color;   mesa7btn.Text = mozo; }
+            if (mesa == 18) { mesa18btn.Normalcolor = color; mesa18btn.Text = mozo; }
+            if (mesa == 29) { mesa29btn.Normalcolor = color; mesa29btn.Text = mozo; }
+            if (mesa == 8) { mesa8btn.Normalcolor = color;   mesa8btn.Text = mozo; }
+            if (mesa == 19) { mesa19btn.Normalcolor = color; mesa19btn.Text = mozo; }
+            if (mesa == 30) { mesa30btn.Normalcolor = color; mesa30btn.Text = mozo; }
+            if (mesa == 9) { mesa9btn.Normalcolor = color;   mesa9btn.Text = mozo; }
+            if (mesa == 20) { mesa20btn.Normalcolor = color; mesa20btn.Text = mozo; }
+            if (mesa == 31) { mesa31btn.Normalcolor = color; mesa31btn.Text = mozo; }
+            if (mesa == 10) { mesa10btn.Normalcolor = color; mesa10btn.Text = mozo; }
+            if (mesa == 21) { mesa21btn.Normalcolor = color; mesa21btn.Text = mozo; }
+            if (mesa == 32) { mesa32btn.Normalcolor = color; mesa32btn.Text = mozo; }
+            if (mesa == 11) { mesa11btn.Normalcolor = color; mesa11btn.Text = mozo; }
+            if (mesa == 22) { mesa22btn.Normalcolor = color; mesa22btn.Text = mozo; }
+            if (mesa == 33) { mesa33btn.Normalcolor = color; mesa33btn.Text = mozo; }
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+
+            try
+            {
+                CalcComandaAndUpdate();
+
+                if (ChamiTab.SelectedTab == Mesastab || ChamiTab.SelectedTab == Mesas2tab)
+                {
+                    CheckMesaIfDataExist();
+                }
+                
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message) ;
+
+            }    
+            
+
+
 
         }
     }

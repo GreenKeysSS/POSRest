@@ -128,3 +128,4 @@ C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\obj\Debug\Presentation
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\obj\Debug\Presentation.csproj.CopyComplete
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\obj\Debug\GK COMSYSTEM CHAMIBEN.exe
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\obj\Debug\GK COMSYSTEM CHAMIBEN.pdb
+C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\bin\Debug\XanderUI.dll
