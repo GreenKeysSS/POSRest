@@ -72,10 +72,8 @@ namespace GKCOMSYSTEMCHAMIBEN
             //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
             addcolcomanda();
 
-            GridFillBebidas();
-            GridFillEntradas();
-            GridFillPlatoFondo();
-            GridFillPostres();
+            
+           
 
 
            
@@ -3268,11 +3266,28 @@ namespace GKCOMSYSTEMCHAMIBEN
             printer2 = new ProductModel().GetLastPrinter2();
             printer3 = new ProductModel().GetLastPrinter3();
 
+            try
+            {
+                GridFillBebidas();
+                GridFillEntradas();
+                GridFillPlatoFondo();
+                GridFillPostres();
+            }
+            catch (Exception ex)
+            {
+
+                Task.Delay(TimeSpan.FromSeconds(20));
+            }
+            finally
+            {
+                GridFillBebidas();
+                GridFillEntradas();
+                GridFillPlatoFondo();
+                GridFillPostres();
+            }
 
 
 
-
-            
 
         }
         
