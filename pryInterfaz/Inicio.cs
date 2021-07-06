@@ -3273,10 +3273,10 @@ namespace GKCOMSYSTEMCHAMIBEN
                 GridFillPlatoFondo();
                 GridFillPostres();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                Task.Delay(TimeSpan.FromSeconds(20));
+                Thread.Sleep(TimeSpan.FromSeconds(20));
             }
             finally
             {

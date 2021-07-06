@@ -1,0 +1,14 @@
+C:\Users\User\Documents\GitHub\POSRest\Domain\bin\Release\Domain.dll
+C:\Users\User\Documents\GitHub\POSRest\Domain\bin\Release\Domain.pdb
+C:\Users\User\Documents\GitHub\POSRest\Domain\bin\Release\DataAccess.dll
+C:\Users\User\Documents\GitHub\POSRest\Domain\bin\Release\MySql.Data.dll
+C:\Users\User\Documents\GitHub\POSRest\Domain\bin\Release\Google.Protobuf.dll
+C:\Users\User\Documents\GitHub\POSRest\Domain\bin\Release\Renci.SshNet.dll
+C:\Users\User\Documents\GitHub\POSRest\Domain\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\User\Documents\GitHub\POSRest\Domain\bin\Release\DataAccess.pdb
+C:\Users\User\Documents\GitHub\POSRest\Domain\bin\Release\MySql.Data.xml
+C:\Users\User\Documents\GitHub\POSRest\Domain\obj\Release\Domain.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\POSRest\Domain\obj\Release\Domain.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\POSRest\Domain\obj\Release\Domain.csproj.CopyComplete
+C:\Users\User\Documents\GitHub\POSRest\Domain\obj\Release\Domain.dll
+C:\Users\User\Documents\GitHub\POSRest\Domain\obj\Release\Domain.pdb
