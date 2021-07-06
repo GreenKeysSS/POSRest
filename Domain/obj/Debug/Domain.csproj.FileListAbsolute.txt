@@ -28,7 +28,6 @@ C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\bin\Debug\Zstandard.Net.dl
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\bin\Debug\K4os.Compression.LZ4.Streams.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\bin\Debug\Ubiety.Dns.Core.dll
-C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\bin\Debug\Renci.SshNet.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\bin\Debug\System.Buffers.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\bin\Debug\K4os.Compression.LZ4.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\Domain\bin\Debug\K4os.Hash.xxHash.dll

@@ -133,7 +133,7 @@
             this.closebtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.closebtn.TabIndex = 6;
             this.closebtn.TabStop = false;
-            this.closebtn.Zoom = 5;
+            this.closebtn.Zoom = 0;
             this.closebtn.Click += new System.EventHandler(this.closebtn_Click);
             // 
             // bunifuCustomLabel1

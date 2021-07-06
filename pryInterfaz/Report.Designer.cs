@@ -735,7 +735,7 @@
             this.exitbtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.exitbtn.TabIndex = 166;
             this.exitbtn.TabStop = false;
-            this.exitbtn.Zoom = 4;
+            this.exitbtn.Zoom = 0;
             this.exitbtn.Click += new System.EventHandler(this.exitbtn_Click);
             // 
             // reportes

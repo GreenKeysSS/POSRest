@@ -45,7 +45,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         
         public bool state;
         string mozosname = "";
-        public decimal subtotal = 0;
+    
 
         int subtotalprod = 0;
         int currentmesa = 0;
@@ -389,8 +389,8 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                             ProductModel prod = new ProductModel();
                             prod.SaveSell(mozosname, currentmesa,Convert.ToString(row.Cells[0].Value),
-                                Convert.ToDecimal(row.Cells[1].Value), Convert.ToInt16(row.Cells[2].Value),
-                                Convert.ToDecimal(row.Cells[3].Value), Convert.ToString(row.Cells[5].Value));
+                            Convert.ToDecimal(row.Cells[1].Value), Convert.ToInt16(row.Cells[2].Value),
+                            Convert.ToDecimal(row.Cells[3].Value), Convert.ToString(row.Cells[5].Value));
 
 
                         }
@@ -516,7 +516,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                 DataGridViewRow row1 = dgvlistatotal.CurrentRow;
 
-                if (row1.Cells[0].Value.ToString().Contains("-- ELIMINADO"))
+                if (Convert.ToString( row1.Cells[0].Value).Contains("-- ELIMINADO"))
                 {
 
                     MessageBox.Show("No puedes eliminar dos veces un producto", "Observación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -536,7 +536,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                         // Displays the MessageBox.
                         result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Warning);
-                        if (result == System.Windows.Forms.DialogResult.Yes)
+                        if (result == DialogResult.Yes)
                         {
 
 
@@ -580,7 +580,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                                 //Sub cabecera.
                                 ticket.TextoIzquierda("");
                                 ticket.TextoIzquierda("MOZO: " + mozosnametxt1.Text);
-                                ticket.TextoIzquierda("MESA: " + "1");
+                                ticket.TextoIzquierda("MESA: " + currentmesa);
                                 ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
                                 ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
                                 ticket.TextoIzquierda("PLATOS ANULADOS DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
@@ -654,7 +654,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                                 //Sub cabecera.
                                 ticket.TextoIzquierda("");
                                 ticket.TextoIzquierda("MOZO: " + mozosnametxt1.Text);
-                                ticket.TextoIzquierda("MESA: " + "1");
+                                ticket.TextoIzquierda("MESA: " + currentmesa);
                                 ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
                                 ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
                                 ticket.TextoIzquierda("BEBIDAS O POSTRE ANULADA DE LA ORDEN Nº " + row1.Cells[4].Value.ToString());
@@ -790,7 +790,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
 
 
-            string message = "¿Deseas elimnar la orden?";
+            string message = "¿Deseas eliminar la orden?";
             string caption = "Observación";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
@@ -1466,8 +1466,8 @@ namespace GKCOMSYSTEMCHAMIBEN
             unidadescmb3.SelectedIndex = 0;
             unidadescmb4.SelectedIndex = 0;
             azucarcmb.SelectedIndex = 0;
-            svcmb1.SelectedIndex = 0;
             svcmb2.SelectedIndex = 0;
+            svcmb1.SelectedIndex = 0;
             svcmb3.SelectedIndex = 0;
             svcmb4.SelectedIndex = 0;
         }
@@ -1577,12 +1577,6 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-            subtotal -= Convert.ToInt16(precioag);
-
-            subtotaltxt.Text = subtotal.ToString();
-
-            
-
 
         }
 
@@ -1594,7 +1588,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             deletebtn.Enabled = true;
 
             DataGridViewRow row1 = bebidasdgv.CurrentRow;
-            string sv = svcmb2.Text;
+            string sv = svcmb1.Text;
 
             //CAPTURA DATOS DE LA TABLA DE LISTA DE PRODUCTOS
             string precio = row1.Cells[2].Value.ToString();
@@ -1640,10 +1634,8 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                         dgvorden.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() + "_HELAD@" + "_" + azucarcmb.Text, row1.Cells[2].Value.ToString(), unidadescmb.SelectedItem, subtotalprod.ToString());
 
-                        subtotal += subtotalprod;
-
-                        subtotaltxt.Text = subtotal.ToString();
-                        svcmb2.SelectedIndex = 0;
+                       
+                        svcmb1.SelectedIndex = 0;
 
                     }
                     else
@@ -1665,10 +1657,8 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                                 dgvorden.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() + "_HELAD@_ConGAS" + "_", row1.Cells[2].Value.ToString(), unidadescmb.SelectedItem, subtotalprod.ToString());
 
-                                subtotal += subtotalprod;
-
-                                subtotaltxt.Text = subtotal.ToString();
-                                svcmb2.SelectedIndex = 0;
+                               
+                                svcmb1.SelectedIndex = 0;
 
 
                             }
@@ -1677,10 +1667,8 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                                 dgvorden.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() + "_HELAD@_SinGAS" + "_", row1.Cells[2].Value.ToString(), unidadescmb.SelectedItem, subtotalprod.ToString());
 
-                                subtotal += subtotalprod;
-
-                                subtotaltxt.Text = subtotal.ToString();
-                                svcmb2.SelectedIndex = 0;
+                               
+                                svcmb1.SelectedIndex = 0;
                             }
 
 
@@ -1693,10 +1681,8 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                             dgvorden.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() + "_HELAD@", row1.Cells[2].Value.ToString(), unidadescmb.SelectedItem, subtotalprod.ToString());
 
-                            subtotal += subtotalprod;
-
-                            subtotaltxt.Text = subtotal.ToString();
-                            svcmb2.SelectedIndex = 0;
+                           
+                            svcmb1.SelectedIndex = 0;
                         }
 
 
@@ -1720,10 +1706,8 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                         dgvorden.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() + "_SIN HELAR" + "_" + azucarcmb.Text, row1.Cells[2].Value.ToString(), unidadescmb.SelectedItem, subtotalprod.ToString());
 
-                        subtotal += subtotalprod;
-
-                        subtotaltxt.Text = subtotal.ToString();
-                        svcmb2.SelectedIndex = 0;
+                      
+                        svcmb1.SelectedIndex = 0;
 
                     }
                     else
@@ -1745,10 +1729,8 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                                 dgvorden.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() + "_SIN HELAR_ConGAS" + "_", row1.Cells[2].Value.ToString(), unidadescmb.SelectedItem, subtotalprod.ToString());
 
-                                subtotal += subtotalprod;
-
-                                subtotaltxt.Text = subtotal.ToString();
-                                svcmb2.SelectedIndex = 0;
+                               
+                                svcmb1.SelectedIndex = 0;
 
 
                             }
@@ -1757,10 +1739,8 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                                 dgvorden.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() + "_SIN HELAR_SinGAS" + "_", row1.Cells[2].Value.ToString(), unidadescmb.SelectedItem, subtotalprod.ToString());
 
-                                subtotal += subtotalprod;
-
-                                subtotaltxt.Text = subtotal.ToString();
-                                svcmb2.SelectedIndex = 0;
+                               
+                                svcmb1.SelectedIndex = 0;
                             }
 
 
@@ -1771,10 +1751,8 @@ namespace GKCOMSYSTEMCHAMIBEN
                         {
                             dgvorden.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() + "_SIN HELAR", row1.Cells[2].Value.ToString(), unidadescmb.SelectedItem, subtotalprod.ToString());
 
-                            subtotal += subtotalprod;
-
-                            subtotaltxt.Text = subtotal.ToString();
-                            svcmb2.SelectedIndex = 0;
+                          
+                            svcmb1.SelectedIndex = 0;
                         }
 
 
@@ -1804,10 +1782,8 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     dgvorden.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() + /*"_SIN HELAR" + "_" + */azucarcmb.Text, row1.Cells[2].Value.ToString(), unidadescmb.SelectedItem, subtotalprod.ToString());
 
-                    subtotal += subtotalprod;
-
-                    subtotaltxt.Text = subtotal.ToString();
-                    svcmb2.SelectedIndex = 0;
+                  
+                    svcmb1.SelectedIndex = 0;
 
                 }
                 else
@@ -1818,10 +1794,8 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     dgvorden.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() /*+ "_SIN HELAR"*/, row1.Cells[2].Value.ToString(), unidadescmb.SelectedItem, subtotalprod.ToString());
 
-                    subtotal += subtotalprod;
-
-                    subtotaltxt.Text = subtotal.ToString();
-                    svcmb2.SelectedIndex = 0;
+                    
+                    svcmb1.SelectedIndex = 0;
 
 
 
@@ -1866,7 +1840,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             if (result == DialogResult.Yes)
             {
 
-                if (dgvorden.RowCount != 0)
+                if (dgvorden.Rows.Count > 0)
                 {
 
                     order++;
@@ -1892,34 +1866,20 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                   
 
-                    PrintOrder(dgvorden, coment1txt.Text, printer1);
+                    PrintOrder(dgvorden, coment1txt.Text, printer1,"BAR");
 
                   
                     dgvorden.Rows.Clear();
 
-
-
-
-
-
                     ChamiTab.SelectedTab = mesacom;
-                    /*if (dgvlistatotal.SelectedCells.Count != 0)
-                    { deletebtntotal.Enabled = true; }*/
-
-                  
-
-
-
-
-                    //limpiar cuadro subtotal, subtotalproductocadauno 0 y subtotalcuadro 0
-                    subtotal -= subtotal;
+                   
                     subtotalprod -= subtotalprod;
                     subtotaltxt.Text = "";
                     coment1txt.Text = "";
 
 
-                    svcmb2.SelectedIndex = 0;
-                    actualordertxt1.Text = "";
+                    svcmb1.SelectedIndex = 0;
+                  
 
                 }
 
@@ -1940,7 +1900,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-        public void PrintOrder(DataGridView dgv, string comment, string printer) {
+        public void PrintOrder(DataGridView dgv, string comment, string printer, string seccion) {
 
             CrearTicket ticket = new CrearTicket();
 
@@ -1967,7 +1927,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             ticket.TextoIzquierda("Nº ORDEN: " + order);
             ticket.TextoIzquierda("MOZO: " + mozosname);
             ticket.TextoIzquierda("MESA: " + currentmesa);
-            ticket.TextoIzquierda("SECCION: " + "BAR");
+            ticket.TextoIzquierda("SECCION: " + seccion);
             //ticket.TextoIzquierda("CLIENTE: PUBLICO EN GENERAL");
             ticket.TextoIzquierda("");
             ticket.TextoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToLongTimeString());
@@ -1981,7 +1941,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             {
                 if (fila.IsNewRow) continue;
 
-                ticket.AgregaArticulo("-" + fila.Cells[0].Value.ToString(), int.Parse(fila.Cells[2].Value.ToString()),
+                ticket.AgregaArticulo("->" + fila.Cells[0].Value.ToString(), int.Parse(fila.Cells[2].Value.ToString()),
                 decimal.Parse(fila.Cells[1].Value.ToString()), decimal.Parse(fila.Cells[3].Value.ToString()));
             }/*
                     ticket.AgregaArticulo("Articulo A", 2, 20, 40);
@@ -2026,7 +1986,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
 
-                subtotal -= subtotal;
+               
                 subtotaltxt.Text = "";
 
                 //ChamiTab.SelectedTab = mesastab;
@@ -2038,7 +1998,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                
 
                 coment1txt.Text = "";
-                svcmb2.SelectedIndex = 0;
+                svcmb1.SelectedIndex = 0;
                 actualordertxt1.Text = "";
 
             }
@@ -2102,7 +2062,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         private void rightbtn2_Click(object sender, EventArgs e)
         {
             DataGridViewRow row1 = entradasdgv.CurrentRow;
-            string sv = svcmb1.Text;
+            string sv = svcmb2.Text;
 
             if (custom == true)
             {
@@ -2165,9 +2125,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     dgvorden2.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString(), row1.Cells[2].Value.ToString(), unidadescmb2.SelectedItem, subtotalprod.ToString());
 
-                    subtotal += subtotalprod;
-
-                    subtotaltxt2.Text = subtotal.ToString();
+                  
 
 
 
@@ -2203,16 +2161,14 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                 dgvorden2.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString(), row1.Cells[2].Value.ToString(), unidadescmb2.SelectedItem, subtotalprod.ToString());
 
-                subtotal += subtotalprod;
-
-                subtotaltxt2.Text = subtotal.ToString();
+              
 
 
 
                 combosstart();
 
             }
-            svcmb1.SelectedIndex = 0;
+            svcmb2.SelectedIndex = 0;
 
         }
 
@@ -2225,9 +2181,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-            subtotal -= Convert.ToInt16(precioag);
-
-            subtotaltxt2.Text = subtotal.ToString();
+          
             if (dgvorden2.Rows.Count == 0)
             {
 
@@ -2241,7 +2195,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         private void custombtn2_Click_1(object sender, EventArgs e)
         {
             DataGridViewRow row1 = entradasdgv.CurrentRow;
-            string sv = svcmb1.Text;
+            string sv = svcmb2.Text;
 
             //dgvorden3.Rows.Add(row1.Cells[1].Value.ToString(), row1.Cells[2].Value.ToString(), unidadescmb3.SelectedItem, subtotalprod.ToString());
 
@@ -2283,7 +2237,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
             DataGridViewRow row1 = entradasdgv.CurrentRow;
-            DataGridViewRow row2 = dgvorden2.CurrentRow;
+            
 
             string precio = row1.Cells[2].Value.ToString();
             string unidades = unidadescmb.Text;
@@ -2301,7 +2255,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
             // Displays the MessageBox.
             result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (result ==  DialogResult.Yes)
             {
 
                 if (dgvorden2.RowCount != 0)
@@ -2313,40 +2267,48 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     SaveLastOrder();
 
-                    PrintOrder(dgvorden2,coment2txt.Text,printer2);
-
-
-                    if (currentmesa == 1) {  mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden2.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "ENTRADAS"); } }
-                    //////////////////////////////////
-                    /*//*/
-                    dgvorden2.Rows.Clear();//////
-                    //////////////////////////////////
+                    enableradio1(false);
 
 
 
-                    if (currentmesa == 1) {
-                       
-                        ChamiTab.SelectedTab = mesacom;
-                        if (dgvlistatotal.SelectedCells.Count != 0) { deletebtntotal.Enabled = true; } }
+                    foreach (DataGridViewRow row3 in dgvorden2.Rows)
+                    {
+                        if (row3.IsNewRow) continue;
+                        dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), 
+                        row3.Cells[1].Value.ToString(), 
+                        row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "ENTRADAS");
+                    }
+
+
+
+                }
+
+                PrintOrder(dgvorden2, coment2txt.Text, printer2,"COCINA");
+
+                dgvorden2.Rows.Clear();
+
+                
+
+
+                ChamiTab.SelectedTab = mesacom;
                    
-                    //limpiar cuadro subtotal, subtotalproductocadauno 0 y subtotalcuadro 0
-                    subtotal -= subtotal;
-                    subtotalprod -= subtotalprod;
-                    subtotaltxt2.Text = "";
-                    coment2txt.Text = "";
-                    actualordertxt2.Text = "";
-                    coment2txt.Text = "";
-                    svcmb1.SelectedIndex = 0;
-                    actualordertxt2.Text = "";
-                }
+                   
+                    
 
-
-                else
-                {
-                    MessageBox.Show("Debe agregar productos a la orden", "Observación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
+                subtotalprod -= subtotalprod;
+                actualordertxt2.Text = "";
+                coment2txt.Text = "";
+                svcmb2.SelectedIndex = 0;
+                 
             }
+
+
+            else
+            {
+                MessageBox.Show("Debe agregar productos a la orden", "Observación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+            
         }
 
         private void cancelbtn2_Click(object sender, EventArgs e)
@@ -2362,7 +2324,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
 
-                subtotal -= subtotal;
+              
                 subtotaltxt2.Text = "";
 
 
@@ -2371,7 +2333,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                 ChamiTab.SelectedTab = mesacom; 
                 
                 coment2txt.Text = "";
-                svcmb1.SelectedIndex = 0;
+                svcmb2.SelectedIndex = 0;
                 actualordertxt2.Text = "";
             }
 
@@ -2590,9 +2552,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     dgvorden3.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString(), row1.Cells[2].Value.ToString(), unidadescmb3.SelectedItem, subtotalprod.ToString());
 
-                    subtotal += subtotalprod;
-
-                    subtotaltxt3.Text = subtotal.ToString();
+                  
 
                     combosstart();
                 }
@@ -2622,9 +2582,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     dgvorden3.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString(), row1.Cells[2].Value.ToString(), unidadescmb3.SelectedItem, subtotalprod.ToString());
 
-                    subtotal += subtotalprod;
-
-                    subtotaltxt3.Text = subtotal.ToString();
+                    
 
                     combosstart();
                 }
@@ -2676,9 +2634,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-            subtotal -= Convert.ToInt16(precioag);
-
-            subtotaltxt3.Text = subtotal.ToString();
+            
             if (dgvorden3.Rows.Count == 0)
             {
 
@@ -2784,7 +2740,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         {
 
             DataGridViewRow row1 = platofondodgv.CurrentRow;
-            DataGridViewRow row2 = dgvorden3.CurrentRow;
+            
 
             string precio = row1.Cells[2].Value.ToString();
             string unidades = unidadescmb.Text;
@@ -2802,10 +2758,10 @@ namespace GKCOMSYSTEMCHAMIBEN
 
             // Displays the MessageBox.
             result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
 
-                if (dgvorden3.RowCount != 0)
+                if (dgvorden3.RowCount > 0)
                 {
 
                    
@@ -2813,29 +2769,31 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     SaveLastOrder();
 
+                    
+                    enableradio1(false);
 
-                    PrintOrder(dgvorden3, coment3txt.Text, printer2);
-                    if (currentmesa == 1) {  mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden3.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "PLATOS FONDO"); } }
-                    //////////////////////////////////
-                    /*//*/
-                    dgvorden3.Rows.Clear();//////
-                    //////////////////////////////////
+                    foreach (DataGridViewRow row3 in dgvorden3.Rows) {
+
+                        if (row3.IsNewRow) continue;
+
+                        dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), 
+                        row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), 
+                        row3.Cells[3].Value.ToString(), order.ToString(), "PLATOS FONDO");
+                    }
+
+                    PrintOrder(dgvorden3, coment3txt.Text, printer2,"COCINA");
+
+                    dgvorden3.Rows.Clear();
 
 
 
-                    if (currentmesa == 1) {
-                   
-                        ChamiTab.SelectedTab = mesacom;
-                        if (dgvlistatotal.SelectedCells.Count != 0) { deletebtntotal.Enabled = true; } }
-                   
-
-                    //limpiar cuadro subtotal, subtotalproductocadauno 0 y subtotalcuadro 0
-                    subtotal -= subtotal;
+                    ChamiTab.SelectedTab = mesacom;
+             
                     subtotalprod -= subtotalprod;
                     subtotaltxt3.Text = "";
                     coment3txt.Text = "";
                     svcmb3.SelectedIndex = 0;
-                    actualordertxt3.Text = "";
+              
                 }
 
 
@@ -2859,7 +2817,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
 
-                subtotal -= subtotal;
+            
                 subtotaltxt3.Text = "";
 
 
@@ -2909,10 +2867,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     dgvorden4.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() + "CALENTADO", row1.Cells[2].Value.ToString(), unidadescmb4.SelectedItem, subtotalprod.ToString());
 
-                    subtotal += subtotalprod;
-
-                    subtotaltxt4.Text = subtotal.ToString();
-
+                 
                     combosstart();
 
 
@@ -2925,9 +2880,6 @@ namespace GKCOMSYSTEMCHAMIBEN
                 {
                     dgvorden4.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString() + "FRIO", row1.Cells[2].Value.ToString(), unidadescmb4.SelectedItem, subtotalprod.ToString());
 
-                    subtotal += subtotalprod;
-
-                    subtotaltxt4.Text = subtotal.ToString();
 
                     combosstart();
 
@@ -2941,9 +2893,7 @@ namespace GKCOMSYSTEMCHAMIBEN
             {
                 dgvorden4.Rows.Add("(" + sv + ")" + row1.Cells[1].Value.ToString(), row1.Cells[2].Value.ToString(), unidadescmb4.SelectedItem, subtotalprod.ToString());
 
-                subtotal += subtotalprod;
-
-                subtotaltxt4.Text = subtotal.ToString();
+               
 
                 combosstart();
             }
@@ -2963,9 +2913,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-            subtotal -= Convert.ToInt16(precioag);
-
-            subtotaltxt4.Text = subtotal.ToString();
+           
             if (dgvorden4.Rows.Count == 0)
             {
 
@@ -3001,7 +2949,7 @@ namespace GKCOMSYSTEMCHAMIBEN
         private void printbtn4_Click_1(object sender, EventArgs e)
         {
             DataGridViewRow row1 = postredgv.CurrentRow;
-            DataGridViewRow row2 = dgvorden4.CurrentRow;
+            
 
             string precio = row1.Cells[2].Value.ToString();
             string unidades = unidadescmb.Text;
@@ -3009,7 +2957,6 @@ namespace GKCOMSYSTEMCHAMIBEN
             int unidadesprod = Convert.ToInt16(unidades);
             int subtotalprod = precioprod * unidadesprod;
 
-           // MySqlConnection mysqlCon = new MySqlConnection(connectionString);
 
 
             string message = "¿Deseas imprimir la orden?";
@@ -3019,7 +2966,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
             // Displays the MessageBox.
             result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Question);
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (result == DialogResult.Yes)
             {
 
                 if (dgvorden4.RowCount != 0)
@@ -3030,31 +2977,37 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     order++;
                     SaveLastOrder();
-                    PrintOrder(dgvorden4, coment4txt.Text, printer1);
-
-
-                    if (currentmesa == 1) {  mozosnametxt1.Text = mozosname; mesa1btn.Text = mozosname; enableradio1(false); foreach (DataGridViewRow row3 in dgvorden4.Rows) { if (row3.IsNewRow) continue; dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(), row3.Cells[1].Value.ToString(), row3.Cells[2].Value.ToString(), row3.Cells[3].Value.ToString(), order.ToString(), "POSTRES"); } }
                    
-                    //////////////////////////////////
-                    /*//*/
-                    dgvorden4.Rows.Clear();//////
-                    //////////////////////////////////
+                    enableradio1(false);
+
+                    foreach (DataGridViewRow row3 in dgvorden4.Rows) {
+
+                        if (row3.IsNewRow) continue;
+
+                        dgvlistatotal.Rows.Add(row3.Cells[0].Value.ToString(),
+                        row3.Cells[1].Value.ToString(),
+                        row3.Cells[2].Value.ToString(), 
+                        row3.Cells[3].Value.ToString(),
+                        order.ToString(), "POSTRES");
+                    }
+
+
+                    PrintOrder(dgvorden4, coment4txt.Text, printer1,"BAR");
+
+                    dgvorden4.Rows.Clear();
 
 
 
-                    if (currentmesa == 1) {
-                     
-                        ChamiTab.SelectedTab = mesacom; if (dgvlistatotal.SelectedCells.Count != 0) { deletebtntotal.Enabled = true; } }
-               
+                    
+                    ChamiTab.SelectedTab = mesacom;
 
+                        
 
-                    //limpiar cuadro subtotal, subtotalproductocadauno 0 y subtotalcuadro 0
-                    subtotal -= subtotal;
                     subtotalprod -= subtotalprod;
                     subtotaltxt4.Text = "";
                     coment4txt.Text = "";
                     svcmb4.SelectedIndex = 0;
-                    actualordertxt4.Text = "";
+                    
 
                 }
 
@@ -3078,8 +3031,6 @@ namespace GKCOMSYSTEMCHAMIBEN
             result = MessageBox.Show(message, caption, buttons, MessageBoxIcon.Warning);
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-
-                subtotal -= subtotal;
                 subtotaltxt4.Text = "";
 
 
@@ -3819,19 +3770,19 @@ namespace GKCOMSYSTEMCHAMIBEN
                 albradio.Checked = true;
 
             }
-            if (mozosname == "JENKER")
+            if (mozo == "JENKER")
             {
                 jenkradio.Checked = true;
 
             }
-            if (mozosname == "ORLANDO")
+            if (mozo == "ORLANDO")
             {
                 
                 pacradio.Checked = true;
 
 
             }
-            if (mozosname == "RENAN")
+            if (mozo == "RENAN")
             {
                 
 
@@ -3839,27 +3790,27 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
             }
-            if (mozosname == "ROXANA")
+            if (mozo == "ROXANA")
             {
                 roxradio.Checked = true;
               
 
 
             }
-            if (mozosname == "ELMER")
+            if (mozo == "ELMER")
             {
                 elmradio.Checked = true;
 
 
             }
-            if (mozosname == "INVITADO 1")
+            if (mozo == "INVITADO 1")
             {
                 
                 inv1radio.Checked = true;
 
 
             }
-            if (mozosname == "INVITADO 2")
+            if (mozo == "INVITADO 2")
             {
                 inv2radio.Checked = true;
                
@@ -3892,7 +3843,7 @@ namespace GKCOMSYSTEMCHAMIBEN
                  string mozo = Convert.ToString(dt.Rows[0][0]);
 
                 Console.WriteLine(mozo); 
-                 SelectMozoFromSavedCOMS(mozo);
+                SelectMozoFromSavedCOMS(mozo);
                 enableradio1(false);
 
             }
@@ -3942,8 +3893,11 @@ namespace GKCOMSYSTEMCHAMIBEN
 
                     foreach (DataGridViewRow row in dgvlistatotal.Rows)
                     {
-
-                        sub = sub + Convert.ToDecimal(row.Cells[3].Value);
+                        if (!Convert.ToString(row.Cells[0].Value).Contains("-- ELIMINADO"))
+                        {
+                            sub = sub + Convert.ToDecimal(row.Cells[3].Value);
+                        }
+                        
 
                     }
                     foreach (DataGridViewRow row1 in dgvlistatotal.SelectedRows)
@@ -4065,19 +4019,253 @@ namespace GKCOMSYSTEMCHAMIBEN
 
         }
 
+        private void CalcBebidas() {
+
+
+
+
+            if (dgvorden.Rows.Count > 0)
+            {
+                decimal sub = 0;
+
+
+
+                try
+                {
+
+
+                    foreach (DataGridViewRow row in dgvorden.Rows)
+                    {
+
+                        sub = sub + Convert.ToDecimal(row.Cells[3].Value);
+
+                    }
+                    foreach (DataGridViewRow row1 in dgvorden.SelectedRows)
+                    {
+                        actualordertxt1.Text = Convert.ToString(row1.Cells[0].Value);
+
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+                }
+
+                subtotaltxt.Text = Convert.ToString(sub);
+
+
+
+
+
+            }
+            else
+            {
+
+                actualordertxt1.Text = "";
+                subtotaltxt.Text = "0";
+
+            }
+
+
+        }
+        private void CalcEntradas()
+        {
+
+
+
+
+            if (dgvorden2.Rows.Count > 0)
+            {
+                decimal sub = 0;
+
+
+
+                try
+                {
+
+
+                    foreach (DataGridViewRow row in dgvorden2.Rows)
+                    {
+
+                        sub = sub + Convert.ToDecimal(row.Cells[3].Value);
+
+                    }
+                    foreach (DataGridViewRow row1 in dgvorden2.SelectedRows)
+                    {
+                        actualordertxt2.Text = Convert.ToString(row1.Cells[0].Value);
+
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+                }
+
+                subtotaltxt2.Text = Convert.ToString(sub);
+
+
+
+
+
+            }
+            else
+            {
+
+                actualordertxt2.Text = "";
+                subtotaltxt2.Text = "0";
+
+            }
+
+
+        }
+        private void CalcPlatoFondo()
+        {
+
+
+
+
+            if (dgvorden3.Rows.Count > 0)
+            {
+                decimal sub = 0;
+
+
+
+                try
+                {
+
+
+                    foreach (DataGridViewRow row in dgvorden3.Rows)
+                    {
+
+                        sub = sub + Convert.ToDecimal(row.Cells[3].Value);
+
+                    }
+                    foreach (DataGridViewRow row1 in dgvorden3.SelectedRows)
+                    {
+                        actualordertxt3.Text = Convert.ToString(row1.Cells[0].Value);
+
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+                }
+
+                subtotaltxt3.Text = Convert.ToString(sub);
+
+
+
+
+
+            }
+            else
+            {
+
+                actualordertxt3.Text = "";
+                subtotaltxt3.Text = "0";
+
+            }
+
+
+        }
+        private void CalcPostre()
+        {
+
+
+
+
+            if (dgvorden4.Rows.Count > 0)
+            {
+                decimal sub = 0;
+
+
+
+                try
+                {
+
+
+                    foreach (DataGridViewRow row in dgvorden4.Rows)
+                    {
+
+                        sub = sub + Convert.ToDecimal(row.Cells[3].Value);
+
+                    }
+                    foreach (DataGridViewRow row1 in dgvorden4.SelectedRows)
+                    {
+                        actualordertxt1.Text = Convert.ToString(row1.Cells[0].Value);
+
+                    }
+
+
+
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+                }
+
+                subtotaltxt4.Text = Convert.ToString(sub);
+
+
+
+
+
+            }
+            else
+            {
+
+                actualordertxt4.Text = "";
+                subtotaltxt4.Text = "0";
+
+            }
+
+
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             
 
             try
             {
-                CalcComandaAndUpdate();
-
+                if (ChamiTab.SelectedTab == mesacom)
+                {
+                    CalcComandaAndUpdate();
+                }
                 if (ChamiTab.SelectedTab == Mesastab || ChamiTab.SelectedTab == Mesas2tab)
                 {
                     CheckMesaIfDataExist();
                 }
-                
+                if (ChamiTab.SelectedTab == BebidasTab)
+                {
+                    CalcBebidas();
+                }
+                if (ChamiTab.SelectedTab == EntradasTab)
+                {
+                    CalcEntradas();
+                }
+                if (ChamiTab.SelectedTab == PlatoFondoTab)
+                {
+                    CalcPlatoFondo();
+                }
+                if (ChamiTab.SelectedTab == PostresTab)
+                {
+                    CalcPostre();
+                }
+
 
 
             }

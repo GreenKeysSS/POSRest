@@ -83,7 +83,6 @@ C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\MySql.Data.
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\DataAccess.pdb
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\obj\Debug\Presentation.csproj.CopyComplete
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\MySql.Data.dll
-C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\pryInterfaz\obj\Debug\GK COMSYSTEM CHAMIBEN.exe.config
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\bin\Debug\GK COMSYSTEM CHAMIBEN.exe.config
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\bin\Debug\GK COMSYSTEM CHAMIBEN.exe
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\bin\Debug\GK COMSYSTEM CHAMIBEN.pdb
@@ -129,3 +128,5 @@ C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\obj\Debug\Presentation
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\obj\Debug\GK COMSYSTEM CHAMIBEN.exe
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\obj\Debug\GK COMSYSTEM CHAMIBEN.pdb
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\pryInterfaz\bin\Debug\XanderUI.dll
+C:\Users\USER\source\repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\Newtonsoft.Json.dll
+C:\Users\USER\source\repos\GreenKeysSS\POSRest\pryInterfaz\bin\Debug\Newtonsoft.Json.xml

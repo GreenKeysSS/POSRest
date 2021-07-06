@@ -24,7 +24,6 @@ C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\bin\Debug\Zstandard.Ne
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\bin\Debug\K4os.Compression.LZ4.Streams.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\bin\Debug\BouncyCastle.Crypto.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\bin\Debug\Ubiety.Dns.Core.dll
-C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\bin\Debug\Renci.SshNet.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\bin\Debug\System.Buffers.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\bin\Debug\K4os.Compression.LZ4.dll
 C:\Users\USER\Source\Repos\GreenKeysSS\POSRest\DataAccess\bin\Debug\K4os.Hash.xxHash.dll
@@ -47,3 +46,4 @@ C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\obj\Debug\DataAccess.cs
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\obj\Debug\DataAccess.csproj.CopyComplete
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\SONIC\Desktop\GITHUBTRASHCAN\POSRest\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\USER\source\repos\GreenKeysSS\POSRest\DataAccess\bin\Debug\MySql.Data.dll

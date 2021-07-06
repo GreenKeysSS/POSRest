@@ -221,11 +221,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-                start.subtotal += subtotalnuensal;
-
-                decimal sub = start.subtotal;
-
-                start.subtotaltxt2.Text = Convert.ToString(sub);
+                
                 start.deletebtn2.Enabled = true;
 
                 this.Close();

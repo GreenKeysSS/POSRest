@@ -96,11 +96,7 @@ namespace GKCOMSYSTEMCHAMIBEN
 
 
 
-                start.subtotal += subtotalnuduo;
-
-                decimal sub = start.subtotal;
-
-                start.subtotaltxt3.Text = Convert.ToString(sub);
+             
                 start.deletebtn3.Enabled = true;
 
                 this.Close();
